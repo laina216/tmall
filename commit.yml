@@ -1,11 +1,9 @@
 !revision
 branches: {
   }
-fileChange:
-  /pom.xml:
-    newFile: !uuid '71587278f803bc4c5431f2cd8881e52a198c1184'
-    oldFile: !uuid '86fd2b2ee489472c6dd6002971b7f39f66631cb5'
-gitCommitId: !uuid '7d20fb87b5b2c02a087aff9e16429f1448771709'
+fileChange: {
+  }
+gitCommitId: !uuid 'cc526204c5fa75be515b851a158aa77e3c95612a'
 renames: {
   }
-revisionId: 4
+revisionId: 5
