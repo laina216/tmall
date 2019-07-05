@@ -2,70 +2,10 @@
 branches: {
   }
 fileChange:
-  /pom.xml:
-    newFile: !uuid '8cab36fc9d2c5c3905e31944b9781c8b07eaaeb3'
-    oldFile: !uuid '71587278f803bc4c5431f2cd8881e52a198c1184'
-  /src:
-    newFile: !uuid '0397ba31b0a35e167fe8a2f5c3d98caf3ef63c7c'
-    oldFile: !uuid '5b7968c4a38cf89afe067c11b046c65a0d55721e'
-  /src/main:
-    newFile: !uuid 'ed7f48958b8601c67e74b507719ac518f1e86bb4'
-    oldFile: !uuid 'a6e6c271666c487b613be040ebef32d0e442afc1'
-  /src/main/java:
-    newFile: !uuid '3d8ba23e3dea6d38b8487de2b341f9e7d72e2b00'
-    oldFile: !uuid '1134c9f73eccb4e9cfca6fe70ec734b1f77ae61f'
-  /src/main/java/com:
-    newFile: !uuid '246aa639cc200c0575b9a4fb2907567c0fcd539c'
-    oldFile: !uuid '20e89adfa71150855fe580bd078f20ee7ff1be7a'
-  /src/main/java/com/xq:
-    newFile: !uuid 'd073429bef736a278026c0dee2f38bc083bb1bfc'
-    oldFile: !uuid '58e33d11628c4312dc1a179ff367df7ac11c84cd'
-  /src/main/java/com/xq/tmall:
-    newFile: !uuid 'bae27a4416bdd9a4ed02b447637b6af73d051749'
-    oldFile: !uuid '8dbc5fc94309ec86ea1630b91023cefa707e2ecc'
-  /src/main/java/com/xq/tmall/config:
-    newFile: !uuid '5bd863132d273c0bef54820c36cd8d75f1a8824a'
-    oldFile: !uuid '316aa6bc7fb7e24b66c8778020cfb8d325b7465b'
-  /src/main/java/com/xq/tmall/config/datasource:
-    newFile: !uuid '07ee2f519da82bbf06bbab8e3cc8ab5662e2e831'
-    oldFile: !uuid 'd38b9e95788640ecf530827b3d452c8629020626'
-  /src/main/java/com/xq/tmall/config/datasource/DruidConfiguration.java:
-    newFile: !uuid '71d5a3e503c477be06d01affc164afe9e25d24fb'
-    oldFile: null
-  /src/main/java/com/xq/tmall/config/datasource/DruidDBConfig.java:
-    newFile: null
-    oldFile: !uuid 'bb07a702443a04eeacfc59ea5667952224e5c2ca'
-  /src/main/java/com/xq/tmall/config/mybatis:
-    newFile: !uuid 'cfed1bae338ede54e15fab63fdc9019d4bc7a153'
-    oldFile: !uuid '3a39572b95eb39a8107d7a8b4e0c4c3fa2c580cd'
-  /src/main/java/com/xq/tmall/config/mybatis/MyMetaObjectHandler.java:
-    newFile: !uuid '288194dfa826af943d684f554617688526046e7f'
-    oldFile: !uuid 'a89687b214c2b851c02080217228c29019540840'
-  /src/main/java/com/xq/tmall/config/mybatis/MybatisPlusConfig.java:
-    newFile: !uuid 'd3e15f7dbbd3ecbbdd0ab8fffbbca5ccb08b9a83'
-    oldFile: !uuid '77d4b285bccfa60a9c5daeff4e33c95598ed0441'
-  /src/main/java/com/xq/tmall/controller:
-    newFile: !uuid 'c34c54c2ae735619a738ae49464cdc4dc3346bbd'
-    oldFile: !uuid 'f7179731ddb2deae5c221ddd9badfc953e048dbb'
-  /src/main/java/com/xq/tmall/controller/BaseController.java:
-    newFile: !uuid '1d9a80c98f34bc84e1396825c20a4488dae74570'
-    oldFile: !uuid 'ee8bf491a04b3bb2a8538b3e8091c605ebb64d61'
-  /src/main/java/com/xq/tmall/entity:
-    newFile: !uuid 'ebf14797629346475a6c571dd27fbddb51a2909a'
-    oldFile: !uuid '2ef610f47315df5cf070c54d92ec7749d097d7b2'
-  /src/main/java/com/xq/tmall/entity/Category.java:
-    newFile: !uuid '44942af11dfc3ad1387162889d15d5c53fef5778'
-    oldFile: !uuid 'feb0da0ba58119d0f248ae6b3e1091dc30731e6e'
-  /src/main/resources:
-    newFile: !uuid 'aa17fc9602951b51f0061d0c9831bf09bf68d448'
-    oldFile: !uuid 'b99ff5db1c5a2bda238e66ee3e5686d2ba1c37f9'
-  /src/main/resources/application-dev.yml:
-    newFile: !uuid '90ed73e22b1a3af33e215c668bfcd5b030d5be7a'
-    oldFile: !uuid 'af8b12ecacb8aabe0f51f79326429200f62fa82d'
-  /src/main/resources/application.yml:
-    newFile: !uuid '7d8be829e313906d6067b549e934bafebc94a562'
-    oldFile: !uuid '4c35c927429189415effdedf1dc771e702c0ae97'
-gitCommitId: !uuid '011b23c6f7cd48c02e3366bc0fcd4d4298eaae2f'
+  /README.md:
+    newFile: !uuid '9c8c9ae3d0dd6ae7f205d49469af061d911759a5'
+    oldFile: !uuid '9ef85f98b33073337453059eecf5056194437424'
+gitCommitId: !uuid '152c814c74784632c9ff066b4c9b6cc1c2b1d08c'
 renames: {
   }
-revisionId: 6
+revisionId: 7
