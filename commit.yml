@@ -3,75 +3,18 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '544230744e01dac75685bc48e40c3eb36bb972c3'
-    oldFile: !uuid '17850320d7eed79e367c50597ab8e5a9d27a7266'
+    newFile: !uuid '00c375a9dc7a074355153285ffedb499be2fff31'
+    oldFile: !uuid '544230744e01dac75685bc48e40c3eb36bb972c3'
   /src/main:
-    newFile: !uuid 'a3d5b405faa42dc46935f1c791dae13942556637'
-    oldFile: !uuid 'a1e9b3454730c671e5bdb0b956152a8879c59045'
-  /src/main/java:
-    newFile: !uuid '95086d119a5d0f4ab1bb67aa275a495c83ca9279'
-    oldFile: !uuid '4e7e0862db474e5acc3cb025068e66c1b9e4e7d4'
-  /src/main/java/com:
-    newFile: !uuid '14e413f45d570fb59d52c92242230b1eb376fec7'
-    oldFile: !uuid 'fb6771b2fe2136b55bb82dbe8f67bf50a0a546a0'
-  /src/main/java/com/xq:
-    newFile: !uuid 'c4eb85fc027d9519408d2863e9eda15a492bbe4b'
-    oldFile: !uuid '4bb0495e4af540235e3307d0392bc0d85031cc7f'
-  /src/main/java/com/xq/tmall:
-    newFile: !uuid '35f1e9c17b5b6976fb1e6ce145779aa0bb870499'
-    oldFile: !uuid '9547ffe6c3b18c641abb00ffc57b812e308f76a1'
-  /src/main/java/com/xq/tmall/controller:
-    newFile: !uuid '23cd75bbfdc90d67d736a39d7a415ba03e1ebcc4'
-    oldFile: !uuid '197666130e54a0ce85a1badb045ef9450bb9eaa9'
-  /src/main/java/com/xq/tmall/controller/admin:
-    newFile: !uuid '59891144f4f7be3955424d5d2acaabba4f94a861'
-    oldFile: !uuid 'e12a1d8cb75ff439663f9f5f17ef9b3e67a79ec4'
-  /src/main/java/com/xq/tmall/controller/admin/CategoryController.java:
-    newFile: !uuid 'e677686fb68732ebe529688ce40199f02b675e3d'
-    oldFile: !uuid '2c40a4c305d792bf812af9f48324fe7fb6fec7ec'
-  /src/main/java/com/xq/tmall/entity:
-    newFile: !uuid '9d3d34a4798d981aebf79d5ee9b32ede102b355b'
-    oldFile: !uuid '928860ca478a6a1aa554fef315491a42c786f1c2'
-  /src/main/java/com/xq/tmall/entity/Category.java:
-    newFile: !uuid '7714a7ab3e873b61117e84ee659c1ffb0866195e'
-    oldFile: !uuid '4740ae8f950d473df020ca41ef7fd5086dd99809'
+    newFile: !uuid '401a45650f9ea724f92770b2f78d38c8a21e04a4'
+    oldFile: !uuid 'a3d5b405faa42dc46935f1c791dae13942556637'
   /src/main/resources:
-    newFile: !uuid '351182f15ab8a140ed3ab68a27c5fddd67ea28fa'
-    oldFile: !uuid '0c8e1661536abefc4f08bc0d2aa133c0e30c31ad'
-  /src/main/resources/mapper:
-    newFile: !uuid '6c82190d2615576ba1834031cf57743aceeaebde'
-    oldFile: !uuid 'f6565f30e57229f8828f91eb1aa58417e172864c'
-  /src/main/resources/mapper/CategoryMapper.xml:
-    newFile: !uuid '371f8d32605147b3bd5345bf9ad11898e6c20816'
-    oldFile: !uuid '959fa89e98524b3f2eb3fa0625a1c1c6a594c8e4'
-  /src/main/resources/mapper/UserMapper.xml:
-    newFile: !uuid '3b2f4b552c82e12e0516ae9ba498e9f36881f581'
-    oldFile: !uuid '4834a5bb9fd3e429af7442830228bd43dc936bc1'
-  /src/main/resources/sql:
-    newFile: !uuid 'c12e98e62aa7af155608f6fc187c5ec4bc266ee2'
-    oldFile: !uuid 'cfa72f7e33263aa6a0789d14d4042258689c3798'
-  /src/main/resources/sql/tmalldemodb.sql:
-    newFile: !uuid 'c560e1dc49eea0722e358b5930f1fa499a4c0ad8'
-    oldFile: !uuid '7acc3ad8b46eedf550baea63aa301ce1cefe9e78'
-  /src/main/webapp:
-    newFile: !uuid 'f3c9a1f7a62b52fe440d445bfee1af6df0c551dc'
-    oldFile: !uuid '349667ccf03c6cca5f886d8b83e4af8549d61cac'
-  /src/main/webapp/WEB-INF:
-    newFile: !uuid 'dcb45a4ad3de32fd936de0883d7eb170c7ea4d4e'
-    oldFile: !uuid 'f4c0a1705178c602cffbdbc83c2a24b48295d68b'
-  /src/main/webapp/WEB-INF/page:
-    newFile: !uuid '729be0b495f8db4a3ad1ea59321c20a3790ac9bf'
-    oldFile: !uuid '7d61923c33633bb3fc72db637da4239f2edaec30'
-  /src/main/webapp/WEB-INF/page/admin:
-    newFile: !uuid 'af7f9bfe2c29031da014959fd4acf071387d84cc'
-    oldFile: !uuid 'f0e6bf2afa5093c44333e82957cc54b4d9d2d201'
-  /src/main/webapp/WEB-INF/page/admin/categoryManagePage.jsp:
-    newFile: !uuid '2b3700e5044ea0133edbde33580380ffee95dfaf'
-    oldFile: !uuid '6587b498c90d8b51aba8f99c1fff0d9ee4530029'
-  /src/main/webapp/WEB-INF/page/admin/userManagePage.jsp:
-    newFile: !uuid '46f8e9f877732cf3acb3f21018f68ee7d2db1666'
-    oldFile: !uuid 'f18c0eb74be2f807cb77988eaecf880ac038fe5a'
-gitCommitId: !uuid 'b556cd2c99b18cf49afe94b4668d5d8cf9c60777'
+    newFile: !uuid 'dad738dc8ade828a855c8cd027089e501078b7c1'
+    oldFile: !uuid '351182f15ab8a140ed3ab68a27c5fddd67ea28fa'
+  /src/main/resources/application-dev.yml:
+    newFile: !uuid 'd450fe6a60a2d6ec2f3c14f201a1d62bb24d14a7'
+    oldFile: !uuid '90ed73e22b1a3af33e215c668bfcd5b030d5be7a'
+gitCommitId: !uuid '01a586910f43b57539db2571c164e2af6aea436b'
 renames: {
   }
-revisionId: 26
+revisionId: 27
