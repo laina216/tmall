@@ -48,6 +48,7 @@ public class ForeOrderController extends BaseController {
     public String goToPageSimple() {
         return "redirect:/order/0/10";
     }
+
     @RequestMapping(value = "order/{index}/{count}", method = RequestMethod.GET)
     public String goToPage(HttpSession session, Map<String, Object> map,
                            @RequestParam(required = false) Byte status,
@@ -70,12 +71,16 @@ public class ForeOrderController extends BaseController {
 
         PageUtil pageUtil = new PageUtil(index, count);
         logger.info("根据用户ID:{}获取订单列表", userId);
-        List<ProductOrder> productOrderList = productOrderService.getList(new ProductOrder().setProductOrder_user(new User().setUser_id(Integer.valueOf(userId.toString()))), status_array, new OrderUtil("productOrder_id", true), pageUtil);
+        User user1 = new User();
+        user1.setUser_id(Integer.valueOf(userId.toString()));
+        ProductOrder productOrder = new ProductOrder();
+        productOrder.setProductOrder_user(user1);
+        List<ProductOrder> productOrderList = productOrderService.getList(productOrder, status_array, new OrderUtil("productOrder_id", true), pageUtil);
 
         //订单总数量
         Integer orderCount = 0;
         if (productOrderList.size() > 0) {
-            orderCount = productOrderService.getTotal(new ProductOrder().setProductOrder_user(new User().setUser_id(Integer.valueOf(userId.toString()))), status_array);
+            orderCount = productOrderService.getTotal(productOrder, status_array);
             logger.info("获取订单项信息及对应的产品信息");
             for (ProductOrder order : productOrderList) {
                 List<ProductOrderItem> productOrderItemList = productOrderItemService.getListByOrderId(order.getProductOrder_id(), null);
@@ -138,7 +143,9 @@ public class ForeOrderController extends BaseController {
         productOrderItem.setProductOrderItem_product(product);
         productOrderItem.setProductOrderItem_number(product_number);
         productOrderItem.setProductOrderItem_price(product.getProduct_sale_price() * product_number);
-        productOrderItem.setProductOrderItem_user(new User().setUser_id(Integer.valueOf(userId.toString())));
+        User user1 = new User();
+        user1.setUser_id(Integer.valueOf(userId.toString()));
+        productOrderItem.setProductOrderItem_user(user1);
 
         String addressId = "110000";
         String cityAddressId = "110100";
@@ -646,10 +653,11 @@ public class ForeOrderController extends BaseController {
         }
         logger.info("总共支付金额为：{}元", orderTotalPrice);
         logger.info("更新订单信息");
-        ProductOrder productOrder = new ProductOrder()
-                .setProductOrder_id(order.getProductOrder_id())
-                .setProductOrder_pay_date(new Date())
-                .setProductOrder_status((byte) 1);
+        ProductOrder productOrder = new ProductOrder();
+        productOrder.setProductOrder_id(order.getProductOrder_id());
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        productOrder.setProductOrder_pay_date(time.format(new Date()));
+        productOrder.setProductOrder_status((byte) 1);
 
         boolean yn = productOrderService.update(productOrder);
         if (yn) {
@@ -688,10 +696,11 @@ public class ForeOrderController extends BaseController {
             return "redirect:/order/0/10";
         }
         logger.info("更新订单信息");
-        ProductOrder productOrder = new ProductOrder()
-                .setProductOrder_id(order.getProductOrder_id())
-                .setProductOrder_delivery_date(new Date())
-                .setProductOrder_status((byte) 2);
+        ProductOrder productOrder = new ProductOrder();
+        productOrder.setProductOrder_id(order.getProductOrder_id());
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        productOrder.setProductOrder_delivery_date(time.format(new Date()));
+        productOrder.setProductOrder_status((byte) 2);
 
         productOrderService.update(productOrder);
 
@@ -734,10 +743,11 @@ public class ForeOrderController extends BaseController {
             return object.toJSONString();
         }
         logger.info("更新订单信息");
-        ProductOrder productOrder = new ProductOrder()
-                .setProductOrder_id(order.getProductOrder_id())
-                .setProductOrder_status((byte) 3)
-                .setProductOrder_confirm_date(new Date());
+        ProductOrder productOrder = new ProductOrder();
+        productOrder.setProductOrder_id(order.getProductOrder_id());
+        productOrder.setProductOrder_status((byte) 3);
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        productOrder.setProductOrder_confirm_date(time.format(new Date()));
 
         boolean yn = productOrderService.update(productOrder);
         if (yn) {
@@ -784,9 +794,9 @@ public class ForeOrderController extends BaseController {
             return object.toJSONString();
         }
         logger.info("更新订单信息");
-        ProductOrder productOrder = new ProductOrder()
-                .setProductOrder_id(order.getProductOrder_id())
-                .setProductOrder_status((byte) 4);
+        ProductOrder productOrder = new ProductOrder();
+        productOrder.setProductOrder_id(order.getProductOrder_id());
+        productOrder.setProductOrder_status((byte) 4);
 
         boolean yn = productOrderService.update(productOrder);
         if (yn) {
@@ -832,7 +842,11 @@ public class ForeOrderController extends BaseController {
                     return object.toJSONString();
                 }
                 double price = productOrderItem.getProductOrderItem_price() / productOrderItem.getProductOrderItem_number();
-                Boolean yn = productOrderItemService.update(new ProductOrderItem().setProductOrderItem_id(Integer.valueOf(key)).setProductOrderItem_number(number).setProductOrderItem_price(number * price));
+                ProductOrderItem productOrderItem1 = new ProductOrderItem();
+                productOrderItem1.setProductOrderItem_id(Integer.valueOf(key));
+                productOrderItem1.setProductOrderItem_number(number);
+                productOrderItem1.setProductOrderItem_price(number * price);
+                Boolean yn = productOrderItemService.update(productOrderItem1);
                 if (!yn) {
                     throw new RuntimeException();
                 }
@@ -907,29 +921,36 @@ public class ForeOrderController extends BaseController {
                 .append(userId);
         logger.info("生成的订单号为：{}", productOrder_code);
         logger.info("整合订单对象");
-        ProductOrder productOrder = new ProductOrder()
-                .setProductOrder_status((byte) 0)
-                .setProductOrder_address(new Address().setAddress_areaId(districtAddressId))
-                .setProductOrder_post(productOrder_post)
-                .setProductOrder_user(new User().setUser_id(Integer.valueOf(userId.toString())))
-                .setProductOrder_mobile(productOrder_mobile)
-                .setProductOrder_receiver(productOrder_receiver)
-                .setProductOrder_detail_address(productOrder_detail_address)
-                .setProductOrder_pay_date(new Date())
-                .setProductOrder_code(productOrder_code.toString());
+        ProductOrder productOrder = new ProductOrder();
+        productOrder.setProductOrder_status((byte) 0);
+        Address address = new Address();
+        address.setAddress_areaId(districtAddressId);
+        productOrder.setProductOrder_address(address);
+        productOrder.setProductOrder_post(productOrder_post);
+        User user = new User();
+        user.setUser_id(Integer.valueOf(userId.toString()));
+        productOrder.setProductOrder_user(user);
+        productOrder.setProductOrder_mobile(productOrder_mobile);
+        productOrder.setProductOrder_receiver(productOrder_receiver);
+        productOrder.setProductOrder_detail_address(productOrder_detail_address);
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        productOrder.setProductOrder_pay_date(time.format(new Date()));
+        productOrder.setProductOrder_code(productOrder_code.toString());
         Boolean yn = productOrderService.add(productOrder);
         if (!yn) {
             throw new RuntimeException();
         }
         Integer order_id = lastIDService.selectLastID();
         logger.info("整合订单项对象");
-        ProductOrderItem productOrderItem = new ProductOrderItem()
-                .setProductOrderItem_user(new User().setUser_id(Integer.valueOf(userId.toString())))
-                .setProductOrderItem_product(productService.get(orderItem_product_id))
-                .setProductOrderItem_number(orderItem_number)
-                .setProductOrderItem_price(product.getProduct_sale_price() * orderItem_number)
-                .setProductOrderItem_userMessage(userMessage)
-                .setProductOrderItem_order(new ProductOrder().setProductOrder_id(order_id));
+        ProductOrderItem productOrderItem = new ProductOrderItem();
+        productOrderItem.setProductOrderItem_user(user);
+        productOrderItem.setProductOrderItem_product(productService.get(orderItem_product_id));
+        productOrderItem.setProductOrderItem_number(orderItem_number);
+        productOrderItem.setProductOrderItem_price(product.getProduct_sale_price() * orderItem_number);
+        productOrderItem.setProductOrderItem_userMessage(userMessage);
+        ProductOrder productOrder1 = new ProductOrder();
+        productOrder1.setProductOrder_id(order_id);
+        productOrderItem.setProductOrderItem_order(productOrder1);
         yn = productOrderItemService.add(productOrderItem);
         if (!yn) {
             throw new RuntimeException();
@@ -978,7 +999,10 @@ public class ForeOrderController extends BaseController {
                     object.put("url", "/cart");
                     return object.toJSONString();
                 }
-                boolean yn = productOrderItemService.update(new ProductOrderItem().setProductOrderItem_id(Integer.valueOf(id)).setProductOrderItem_userMessage(orderItemMap.getString(id)));
+                ProductOrderItem productOrderItem = new ProductOrderItem();
+                productOrderItem.setProductOrderItem_id(Integer.valueOf(id));
+                productOrderItem.setProductOrderItem_userMessage(orderItemMap.getString(id));
+                boolean yn = productOrderItemService.update(productOrderItem);
                 if (!yn) {
                     throw new RuntimeException();
                 }
@@ -1020,16 +1044,22 @@ public class ForeOrderController extends BaseController {
                 .append(userId);
         logger.info("生成的订单号为：{}", productOrder_code);
         logger.info("整合订单对象");
-        ProductOrder productOrder = new ProductOrder()
-                .setProductOrder_status((byte) 0)
-                .setProductOrder_address(new Address().setAddress_areaId(districtAddressId))
-                .setProductOrder_post(productOrder_post)
-                .setProductOrder_user(new User().setUser_id(Integer.valueOf(userId.toString())))
-                .setProductOrder_mobile(productOrder_mobile)
-                .setProductOrder_receiver(productOrder_receiver)
-                .setProductOrder_detail_address(productOrder_detail_address)
-                .setProductOrder_pay_date(new Date())
-                .setProductOrder_code(productOrder_code.toString());
+        ProductOrder productOrder = new ProductOrder();
+        productOrder.setProductOrder_status((byte) 0);
+        Address address = new Address();
+        address.setAddress_areaId(districtAddressId);
+        productOrder.setProductOrder_address(address);
+        productOrder.setProductOrder_post(productOrder_post);
+
+        User user = new User();
+        user.setUser_id(Integer.valueOf(userId.toString()));
+        productOrder.setProductOrder_user(user);
+        productOrder.setProductOrder_mobile(productOrder_mobile);
+        productOrder.setProductOrder_receiver(productOrder_receiver);
+        productOrder.setProductOrder_detail_address(productOrder_detail_address);
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        productOrder.setProductOrder_pay_date(time.format(new Date()));
+        productOrder.setProductOrder_code(productOrder_code.toString());
         Boolean yn = productOrderService.add(productOrder);
         if (!yn) {
             throw new RuntimeException();
@@ -1037,7 +1067,9 @@ public class ForeOrderController extends BaseController {
         Integer order_id = lastIDService.selectLastID();
         logger.info("整合订单项对象");
         for (ProductOrderItem orderItem : productOrderItemList) {
-            orderItem.setProductOrderItem_order(new ProductOrder().setProductOrder_id(order_id));
+            ProductOrder productOrder1 = new ProductOrder();
+            productOrder1.setProductOrder_id(order_id);
+            orderItem.setProductOrderItem_order(productOrder1);
             yn = productOrderItemService.update(orderItem);
         }
         if (!yn) {
@@ -1097,7 +1129,9 @@ public class ForeOrderController extends BaseController {
         productOrderItem.setProductOrderItem_product(product);
         productOrderItem.setProductOrderItem_number(product_number);
         productOrderItem.setProductOrderItem_price(product.getProduct_sale_price() * product_number);
-        productOrderItem.setProductOrderItem_user(new User().setUser_id(Integer.valueOf(userId.toString())));
+        User user = new User();
+        user.setUser_id(Integer.valueOf(userId.toString()));
+        productOrderItem.setProductOrderItem_user(user);
         boolean yn = productOrderItemService.add(productOrderItem);
         if (yn) {
             object.put("success", true);

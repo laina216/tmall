@@ -15,18 +15,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * 后台管理-订单页
  */
 @Controller
-public class OrderController extends BaseController{
+public class OrderController extends BaseController {
     @Autowired
     private ProductOrderService productOrderService;
     @Autowired
@@ -44,17 +41,17 @@ public class OrderController extends BaseController{
 
     //转到后台管理-订单页-ajax
     @RequestMapping(value = "admin/order", method = RequestMethod.GET)
-    public String goToPage(HttpSession session, Map<String, Object> map){
+    public String goToPage(HttpSession session, Map<String, Object> map) {
         logger.info("检查管理员权限");
         Object adminId = checkAdmin(session);
-        if(adminId == null){
+        if (adminId == null) {
             return "admin/include/loginMessage";
         }
 
         logger.info("获取前10条订单列表");
         PageUtil pageUtil = new PageUtil(0, 10);
         List<ProductOrder> productOrderList = productOrderService.getList(null, null, new OrderUtil("productOrder_id", true), pageUtil);
-        map.put("productOrderList",productOrderList);
+        map.put("productOrderList", productOrderList);
         logger.info("获取订单总数量");
         Integer productOrderCount = productOrderService.getTotal(null, null);
         map.put("productOrderCount", productOrderCount);
@@ -71,11 +68,11 @@ public class OrderController extends BaseController{
     public String goToDetailsPage(HttpSession session, Map<String, Object> map, @PathVariable Integer oid/* 订单ID */) {
         logger.info("检查管理员权限");
         Object adminId = checkAdmin(session);
-        if(adminId == null){
+        if (adminId == null) {
             return "admin/include/loginMessage";
         }
 
-        logger.info("获取order_id为{}的订单信息",oid);
+        logger.info("获取order_id为{}的订单信息", oid);
         ProductOrder order = productOrderService.get(oid);
         logger.info("获取订单详情-地址信息");
         Address address = addressService.get(order.getProductOrder_address().getAddress_areaId());
@@ -124,10 +121,11 @@ public class OrderController extends BaseController{
     public String updateOrder(@PathVariable("order_id") String order_id) {
         JSONObject jsonObject = new JSONObject();
         logger.info("整合订单信息");
-        ProductOrder productOrder = new ProductOrder()
-                .setProductOrder_id(Integer.valueOf(order_id))
-                .setProductOrder_status((byte) 2)
-                .setProductOrder_delivery_date(new Date());
+        ProductOrder productOrder = new ProductOrder();
+        productOrder.setProductOrder_id(Integer.valueOf(order_id));
+        productOrder.setProductOrder_status((byte) 2);
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        productOrder.setProductOrder_delivery_date(time.format(new Date()));
         logger.info("更新订单信息，订单ID值为：{}", order_id);
         boolean yn = productOrderService.update(productOrder);
         if (yn) {
@@ -149,29 +147,29 @@ public class OrderController extends BaseController{
                                    @RequestParam(required = false) String productOrder_post/* 订单邮政编码 */,
                                    @RequestParam(required = false) Byte[] productOrder_status_array/* 订单状态数组 */,
                                    @RequestParam(required = false) String orderBy/* 排序字段 */,
-                                   @RequestParam(required = false,defaultValue = "true") Boolean isDesc/* 是否倒序 */,
+                                   @RequestParam(required = false, defaultValue = "true") Boolean isDesc/* 是否倒序 */,
                                    @PathVariable Integer index/* 页数 */,
-                                   @PathVariable Integer count/* 行数 */){
+                                   @PathVariable Integer count/* 行数 */) {
         //移除不必要条件
-        if (productOrder_status_array != null && (productOrder_status_array.length <= 0 || productOrder_status_array.length >=5)) {
+        if (productOrder_status_array != null && (productOrder_status_array.length <= 0 || productOrder_status_array.length >= 5)) {
             productOrder_status_array = null;
         }
-        if (productOrder_code != null){
+        if (productOrder_code != null) {
             productOrder_code = "".equals(productOrder_code) ? null : productOrder_code;
         }
-        if(productOrder_post != null){
+        if (productOrder_post != null) {
             productOrder_post = "".equals(productOrder_post) ? null : productOrder_post;
         }
         if (orderBy != null && "".equals(orderBy)) {
             orderBy = null;
         }
         //封装查询条件
-        ProductOrder productOrder = new ProductOrder()
-                .setProductOrder_code(productOrder_code)
-                .setProductOrder_post(productOrder_post);
+        ProductOrder productOrder = new ProductOrder();
+        productOrder.setProductOrder_code(productOrder_code);
+        productOrder.setProductOrder_post(productOrder_post);
         OrderUtil orderUtil = null;
         if (orderBy != null) {
-            logger.info("根据{}排序，是否倒序:{}",orderBy,isDesc);
+            logger.info("根据{}排序，是否倒序:{}", orderBy, isDesc);
             orderUtil = new OrderUtil(orderBy, isDesc);
         }
 

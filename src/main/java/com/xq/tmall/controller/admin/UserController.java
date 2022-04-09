@@ -93,7 +93,9 @@ public class UserController extends BaseController {
             builder.append(addressStack.pop());
         }
         logger.info("所在地地址字符串：{}", builder);
-        user.setUser_address(new Address().setAddress_name(builder.toString()));
+        Address add=new Address();
+        add.setAddress_name(builder.toString());
+        user.setUser_address(add);
 
         logger.info("获取用户详情-家乡地址信息");
         address = addressService.get(user.getUser_homeplace().getAddress_areaId());
@@ -109,7 +111,7 @@ public class UserController extends BaseController {
             builder.append(addressStack.pop());
         }
         logger.info("家乡地址字符串：{}", builder);
-        user.setUser_homeplace(new Address().setAddress_name(builder.toString()));
+        user.setUser_homeplace(add);
 
         logger.info("获取用户详情-购物车订单项信息");
         List<ProductOrderItem> productOrderItemList = productOrderItemService.getListByUserId(user.getUser_id(), null);
@@ -164,9 +166,9 @@ public class UserController extends BaseController {
             orderBy = null;
         }
         //封装查询条件
-        User user = new User()
-                .setUser_name(user_name)
-                .setUser_gender(gender);
+        User user = new User();
+        user.setUser_name(user_name);
+        user.setUser_gender(gender);
 
         OrderUtil orderUtil = null;
         if (orderBy != null) {
@@ -189,4 +191,24 @@ public class UserController extends BaseController {
 
         return object.toJSONString();
     }
+
+    //按ID删除用户并返回最新结果-ajax
+    @ResponseBody
+    @RequestMapping(value = "admin/user/del/{id}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public String deleteProductById(@PathVariable Integer id) {
+        JSONObject object = new JSONObject();
+        User user = userService.get(id);
+        user.setDel_flag(1);
+        boolean yn = userService.update(user);
+        if (yn) {
+            logger.info("删除成功！");
+            object.put("success", true);
+        } else {
+            logger.warn("删除失败！事务回滚");
+            object.put("success", false);
+            throw new RuntimeException();
+        }
+        return object.toJSONString();
+    }
+
 }

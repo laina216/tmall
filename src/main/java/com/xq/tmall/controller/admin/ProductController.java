@@ -13,19 +13,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
  * 后台管理-产品页
  */
 @Controller
-public class ProductController extends BaseController{
+public class ProductController extends BaseController {
     @Autowired
     private CategoryService categoryService;
     @Autowired
@@ -40,11 +40,11 @@ public class ProductController extends BaseController{
     private LastIDService lastIDService;
 
     //转到后台管理-产品页-ajax
-    @RequestMapping(value = "admin/product",method = RequestMethod.GET)
+    @RequestMapping(value = "admin/product", method = RequestMethod.GET)
     public String goToPage(HttpSession session, Map<String, Object> map) {
         logger.info("检查管理员权限");
         Object adminId = checkAdmin(session);
-        if(adminId == null){
+        if (adminId == null) {
             return "admin/include/loginMessage";
         }
 
@@ -67,18 +67,18 @@ public class ProductController extends BaseController{
     }
 
     //转到后台管理-产品详情页-ajax
-    @RequestMapping(value="admin/product/{pid}",method = RequestMethod.GET)
+    @RequestMapping(value = "admin/product/{pid}", method = RequestMethod.GET)
     public String goToDetailsPage(HttpSession session, Map<String, Object> map, @PathVariable Integer pid/* 产品ID */) {
         logger.info("检查管理员权限");
         Object adminId = checkAdmin(session);
-        if(adminId == null){
+        if (adminId == null) {
             return "admin/include/loginMessage";
         }
 
-        logger.info("获取product_id为{}的产品信息",pid);
+        logger.info("获取product_id为{}的产品信息", pid);
         Product product = productService.get(pid);
         logger.info("获取产品详情-图片信息");
-        Integer product_id =product.getProduct_id();
+        Integer product_id = product.getProduct_id();
         List<ProductImage> productImageList = productImageService.getList(product_id, null, null);
         List<ProductImage> singleProductImageList = new ArrayList<>(5);
         List<ProductImage> detailsProductImageList = new ArrayList<>(8);
@@ -91,15 +91,19 @@ public class ProductController extends BaseController{
         }
         product.setSingleProductImageList(singleProductImageList);
         product.setDetailProductImageList(detailsProductImageList);
-        map.put("product",product);
+        map.put("product", product);
         logger.info("获取产品详情-属性值信息");
-        List<PropertyValue> propertyValueList = propertyValueService.getList(new PropertyValue().setPropertyValue_product(product),null);
+        PropertyValue propertyVa = new PropertyValue();
+        propertyVa.setPropertyValue_product(product);
+        List<PropertyValue> propertyValueList = propertyValueService.getList(propertyVa, null);
         logger.info("获取产品详情-分类信息对应的属性列表");
-        List<Property> propertyList = propertyService.getList(new Property().setProperty_category(product.getProduct_category()),null);
+        Property proper = new Property();
+        proper.setProperty_category(product.getProduct_category());
+        List<Property> propertyList = propertyService.getList(proper, null);
         logger.info("属性列表和属性值列表合并");
-        for(Property property : propertyList){
-            for(PropertyValue propertyValue : propertyValueList){
-                if(property.getProperty_id().equals(propertyValue.getPropertyValue_property().getProperty_id())){
+        for (Property property : propertyList) {
+            for (PropertyValue propertyValue : propertyValueList) {
+                if (property.getProperty_id().equals(propertyValue.getPropertyValue_property().getProperty_id())) {
                     List<PropertyValue> property_value_item = new ArrayList<>(1);
                     property_value_item.add(propertyValue);
                     property.setPropertyValueList(property_value_item);
@@ -107,30 +111,32 @@ public class ProductController extends BaseController{
                 }
             }
         }
-        map.put("propertyList",propertyList);
+        map.put("propertyList", propertyList);
         logger.info("获取分类列表");
-        List<Category> categoryList = categoryService.getList(null,null);
-        map.put("categoryList",categoryList);
+        List<Category> categoryList = categoryService.getList(null, null);
+        map.put("categoryList", categoryList);
 
         logger.info("转到后台管理-产品详情页-ajax方式");
         return "admin/include/productDetails";
     }
 
     //转到后台管理-产品添加页-ajax
-    @RequestMapping(value = "admin/product/new",method = RequestMethod.GET)
-    public String goToAddPage(HttpSession session,Map<String, Object> map){
+    @RequestMapping(value = "admin/product/new", method = RequestMethod.GET)
+    public String goToAddPage(HttpSession session, Map<String, Object> map) {
         logger.info("检查管理员权限");
         Object adminId = checkAdmin(session);
-        if(adminId == null){
+        if (adminId == null) {
             return "admin/include/loginMessage";
         }
 
         logger.info("获取分类列表");
-        List<Category> categoryList = categoryService.getList(null,null);
-        map.put("categoryList",categoryList);
+        List<Category> categoryList = categoryService.getList(null, null);
+        map.put("categoryList", categoryList);
         logger.info("获取第一个分类信息对应的属性列表");
-        List<Property> propertyList = propertyService.getList(new Property().setProperty_category(categoryList.get(0)),null);
-        map.put("propertyList",propertyList);
+        Property property = new Property();
+        property.setProperty_category(categoryList.get(0));
+        List<Property> propertyList = propertyService.getList(property, null);
+        map.put("propertyList", propertyList);
 
         logger.info("转到后台管理-产品添加页-ajax方式");
         return "admin/include/productDetails";
@@ -138,7 +144,7 @@ public class ProductController extends BaseController{
 
     //添加产品信息-ajax.
     @ResponseBody
-    @RequestMapping(value = "admin/product", method = RequestMethod.POST,produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "admin/product", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
     public String addProduct(@RequestParam String product_name/* 产品名称 */,
                              @RequestParam String product_title/* 产品标题 */,
                              @RequestParam Integer product_category_id/* 产品类型ID */,
@@ -150,14 +156,17 @@ public class ProductController extends BaseController{
                              @RequestParam(required = false) String[] productDetailsImageList/*产品详情图片名称数组*/) {
         JSONObject jsonObject = new JSONObject();
         logger.info("整合产品信息");
-        Product product = new Product()
-                .setProduct_name(product_name)
-                .setProduct_title(product_title)
-                .setProduct_category(new Category().setCategory_id(product_category_id))
-                .setProduct_sale_price(product_sale_price)
-                .setProduct_price(product_price)
-                .setProduct_isEnabled(product_isEnabled)
-                .setProduct_create_date(new Date());
+        Product product = new Product();
+        product.setProduct_name(product_name);
+        product.setProduct_title(product_title);
+        Category category = new Category();
+        category.setCategory_id(product_category_id);
+        product.setProduct_category(category);
+        product.setProduct_sale_price(product_sale_price);
+        product.setProduct_price(product_price);
+        product.setProduct_isEnabled(product_isEnabled);
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        product.setProduct_create_date(time.format(new Date()));
         logger.info("添加产品信息");
         boolean yn = productService.add(product);
         if (!yn) {
@@ -175,10 +184,14 @@ public class ProductController extends BaseController{
             List<PropertyValue> propertyValueList = new ArrayList<>(5);
             for (String key : propertyIdSet) {
                 String value = object.getString(key);
-                PropertyValue propertyValue = new PropertyValue()
-                        .setPropertyValue_value(value)
-                        .setPropertyValue_property(new Property().setProperty_id(Integer.valueOf(key)))
-                        .setPropertyValue_product(new Product().setProduct_id(product_id));
+                PropertyValue propertyValue = new PropertyValue();
+                propertyValue.setPropertyValue_value(value);
+                Property property = new Property();
+                property.setProperty_id(Integer.valueOf(key));
+                Product pro = new Product();
+                pro.setProduct_id(product_id);
+                propertyValue.setPropertyValue_property(property);
+                propertyValue.setPropertyValue_product(pro);
                 propertyValueList.add(propertyValue);
             }
             logger.info("共有{}条产品属性数据", propertyValueList.size());
@@ -195,11 +208,13 @@ public class ProductController extends BaseController{
             logger.info("整合产品子信息-产品预览图片");
             List<ProductImage> productImageList = new ArrayList<>(5);
             for (String imageName : productSingleImageList) {
-                productImageList.add(new ProductImage()
-                        .setProductImage_type((byte) 0)
-                        .setProductImage_src(imageName.substring(imageName.lastIndexOf("/") + 1))
-                        .setProductImage_product(new Product().setProduct_id(product_id))
-                );
+                ProductImage productImage = new ProductImage();
+                productImage.setProductImage_type((byte) 0);
+                productImage.setProductImage_src(imageName.substring(imageName.lastIndexOf("/") + 1));
+                Product pro = new Product();
+                pro.setProduct_id(product_id);
+                productImage.setProductImage_product(pro);
+                productImageList.add(productImage);
             }
             logger.info("共有{}条产品预览图片数据", productImageList.size());
             yn = productImageService.addList(productImageList);
@@ -216,11 +231,13 @@ public class ProductController extends BaseController{
             logger.info("整合产品子信息-产品详情图片");
             List<ProductImage> productImageList = new ArrayList<>(5);
             for (String imageName : productDetailsImageList) {
-                productImageList.add(new ProductImage()
-                        .setProductImage_type((byte) 1)
-                        .setProductImage_src(imageName.substring(imageName.lastIndexOf("/") + 1))
-                        .setProductImage_product(new Product().setProduct_id(product_id))
-                );
+                ProductImage productImage = new ProductImage();
+                productImage.setProductImage_type((byte) 1);
+                productImage.setProductImage_src(imageName.substring(imageName.lastIndexOf("/") + 1));
+                Product product1 = new Product();
+                product1.setProduct_id(product_id);
+                productImage.setProductImage_product(product1);
+                productImageList.add(productImage);
             }
             logger.info("共有{}条产品详情图片数据", productImageList.size());
             yn = productImageService.addList(productImageList);
@@ -256,15 +273,18 @@ public class ProductController extends BaseController{
                                 @PathVariable("product_id") Integer product_id/* 产品ID */) {
         JSONObject jsonObject = new JSONObject();
         logger.info("整合产品信息");
-        Product product = new Product()
-                .setProduct_id(product_id)
-                .setProduct_name(product_name)
-                .setProduct_title(product_title)
-                .setProduct_category(new Category().setCategory_id(product_category_id))
-                .setProduct_sale_price(product_sale_price)
-                .setProduct_price(product_price)
-                .setProduct_isEnabled(product_isEnabled)
-                .setProduct_create_date(new Date());
+        Product product = new Product();
+        product.setProduct_id(product_id);
+        product.setProduct_name(product_name);
+        product.setProduct_title(product_title);
+        Category category = new Category();
+        category.setCategory_id(product_category_id);
+        product.setProduct_category(category);
+        product.setProduct_sale_price(product_sale_price);
+        product.setProduct_price(product_price);
+        product.setProduct_isEnabled(product_isEnabled);
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        product.setProduct_create_date(time.format(new Date()));
         logger.info("更新产品信息，产品ID值为：{}", product_id);
         boolean yn = productService.update(product);
         if (!yn) {
@@ -281,10 +301,12 @@ public class ProductController extends BaseController{
             List<PropertyValue> propertyValueList = new ArrayList<>(5);
             for (String key : propertyIdSet) {
                 String value = object.getString(key);
-                PropertyValue propertyValue = new PropertyValue()
-                        .setPropertyValue_value(value)
-                        .setPropertyValue_property(new Property().setProperty_id(Integer.valueOf(key)))
-                        .setPropertyValue_product(product);
+                PropertyValue propertyValue = new PropertyValue();
+                propertyValue.setPropertyValue_value(value);
+                Property property = new Property();
+                property.setProperty_id(Integer.valueOf(key));
+                propertyValue.setPropertyValue_property(property);
+                propertyValue.setPropertyValue_product(product);
                 propertyValueList.add(propertyValue);
             }
             logger.info("共有{}条需要添加的产品属性数据", propertyValueList.size());
@@ -305,9 +327,9 @@ public class ProductController extends BaseController{
             List<PropertyValue> propertyValueList = new ArrayList<>(5);
             for (String key : propertyIdSet) {
                 String value = object.getString(key);
-                PropertyValue propertyValue = new PropertyValue()
-                        .setPropertyValue_value(value)
-                        .setPropertyValue_id(Integer.valueOf(key));
+                PropertyValue propertyValue = new PropertyValue();
+                propertyValue.setPropertyValue_value(value);
+                propertyValue.setPropertyValue_id(Integer.valueOf(key));
                 propertyValueList.add(propertyValue);
             }
             logger.info("共有{}条需要更新的产品属性数据", propertyValueList.size());
@@ -339,11 +361,11 @@ public class ProductController extends BaseController{
             logger.info("整合产品子信息-产品预览图片");
             List<ProductImage> productImageList = new ArrayList<>(5);
             for (String imageName : productSingleImageList) {
-                productImageList.add(new ProductImage()
-                        .setProductImage_type((byte) 0)
-                        .setProductImage_src(imageName.substring(imageName.lastIndexOf("/") + 1))
-                        .setProductImage_product(product)
-                );
+                ProductImage productImage = new ProductImage();
+                productImage.setProductImage_type((byte) 0);
+                productImage.setProductImage_src(imageName.substring(imageName.lastIndexOf("/") + 1));
+                productImage.setProductImage_product(product);
+                productImageList.add(productImage);
             }
             logger.info("共有{}条产品预览图片数据", productImageList.size());
             yn = productImageService.addList(productImageList);
@@ -359,11 +381,11 @@ public class ProductController extends BaseController{
             logger.info("整合产品子信息-产品详情图片");
             List<ProductImage> productImageList = new ArrayList<>(5);
             for (String imageName : productDetailsImageList) {
-                productImageList.add(new ProductImage()
-                        .setProductImage_type((byte) 1)
-                        .setProductImage_src(imageName.substring(imageName.lastIndexOf("/") + 1))
-                        .setProductImage_product(product)
-                );
+                ProductImage productImage = new ProductImage();
+                productImage.setProductImage_type((byte) 1);
+                productImage.setProductImage_src(imageName.substring(imageName.lastIndexOf("/") + 1));
+                productImage.setProductImage_product(product);
+                productImageList.add(productImage);
             }
             logger.info("共有{}条产品详情图片数据", productImageList.size());
             yn = productImageService.addList(productImageList);
@@ -390,11 +412,11 @@ public class ProductController extends BaseController{
                                      @RequestParam(required = false) Double product_price/* 产品最高价 */,
                                      @RequestParam(required = false) Byte[] product_isEnabled_array/* 产品状态数组 */,
                                      @RequestParam(required = false) String orderBy/* 排序字段 */,
-                                     @RequestParam(required = false,defaultValue = "true") Boolean isDesc/* 是否倒序 */,
+                                     @RequestParam(required = false, defaultValue = "true") Boolean isDesc/* 是否倒序 */,
                                      @PathVariable Integer index/* 页数 */,
                                      @PathVariable Integer count/* 行数 */) throws UnsupportedEncodingException {
         //移除不必要条件
-        if (product_isEnabled_array != null && (product_isEnabled_array.length <= 0 || product_isEnabled_array.length >=3)) {
+        if (product_isEnabled_array != null && (product_isEnabled_array.length <= 0 || product_isEnabled_array.length >= 3)) {
             product_isEnabled_array = null;
         }
         if (category_id != null && category_id == 0) {
@@ -408,14 +430,16 @@ public class ProductController extends BaseController{
             orderBy = null;
         }
         //封装查询条件
-        Product product = new Product()
-                .setProduct_name(product_name)
-                .setProduct_category(new Category().setCategory_id(category_id))
-                .setProduct_price(product_price)
-                .setProduct_sale_price(product_sale_price);
+        Product product = new Product();
+        product.setProduct_name(product_name);
+        Category category = new Category();
+        category.setCategory_id(category_id);
+        product.setProduct_category(category);
+        product.setProduct_price(product_price);
+        product.setProduct_sale_price(product_sale_price);
         OrderUtil orderUtil = null;
         if (orderBy != null) {
-            logger.info("根据{}排序，是否倒序:{}",orderBy,isDesc);
+            logger.info("根据{}排序，是否倒序:{}", orderBy, isDesc);
             orderUtil = new OrderUtil(orderBy, isDesc);
         }
 
@@ -437,26 +461,28 @@ public class ProductController extends BaseController{
 
     //按类型ID查询属性-ajax
     @ResponseBody
-    @RequestMapping(value = "admin/property/type/{property_category_id}", method = RequestMethod.GET,produces = "application/json;charset=utf-8")
-    public String getPropertyByCategoryId(@PathVariable Integer property_category_id/* 属性所属类型ID*/){
+    @RequestMapping(value = "admin/property/type/{property_category_id}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public String getPropertyByCategoryId(@PathVariable Integer property_category_id/* 属性所属类型ID*/) {
         //封装查询条件
-        Category category = new Category()
-                .setCategory_id(property_category_id);
+        Category category = new Category();
+        category.setCategory_id(property_category_id);
 
         JSONObject object = new JSONObject();
-        logger.info("按类型获取属性列表，类型ID：{}",property_category_id);
-        List<Property> propertyList = propertyService.getList(new Property().setProperty_category(category),null);
-        object.put("propertyList",JSONArray.parseArray(JSON.toJSONString(propertyList)));
+        logger.info("按类型获取属性列表，类型ID：{}", property_category_id);
+        Property property = new Property();
+        property.setProperty_category(category);
+        List<Property> propertyList = propertyService.getList(property, null);
+        object.put("propertyList", JSONArray.parseArray(JSON.toJSONString(propertyList)));
 
         return object.toJSONString();
     }
 
     //按ID删除产品图片并返回最新结果-ajax
     @ResponseBody
-    @RequestMapping(value = "admin/productImage/{productImage_id}",method = RequestMethod.DELETE,produces = "application/json;charset=utf-8")
-    public String deleteProductImageById(@PathVariable Integer productImage_id/* 产品图片ID */){
+    @RequestMapping(value = "admin/productImage/{productImage_id}", method = RequestMethod.DELETE, produces = "application/json;charset=utf-8")
+    public String deleteProductImageById(@PathVariable Integer productImage_id/* 产品图片ID */) {
         JSONObject object = new JSONObject();
-        logger.info("获取productImage_id为{}的产品图片信息",productImage_id);
+        logger.info("获取productImage_id为{}的产品图片信息", productImage_id);
         ProductImage productImage = productImageService.get(productImage_id);
 
         logger.info("删除产品图片");
@@ -503,4 +529,24 @@ public class ProductController extends BaseController{
 
         return object.toJSONString();
     }
+
+    //按ID删除产品并返回最新结果-ajax
+    @ResponseBody
+    @RequestMapping(value = "product/del/{id}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public String deleteProductById(@PathVariable Integer id) {
+        JSONObject object = new JSONObject();
+        Product product = productService.get(id);
+        product.setProduct_isEnabled((byte)1);
+        boolean yn = productService.update(product);
+        if (yn) {
+            logger.info("删除成功！");
+            object.put("success", true);
+        } else {
+            logger.warn("删除失败！事务回滚");
+            object.put("success", false);
+            throw new RuntimeException();
+        }
+        return object.toJSONString();
+    }
+
 }

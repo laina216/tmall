@@ -3812,28 +3812,29 @@ CREATE TABLE `category`  (
   `category_id` int(10) NOT NULL AUTO_INCREMENT,
   `category_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '类别名称',
   `category_image_src` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '类别图片',
+  `del_flag` tinyint(1) DEFAULT '0' COMMENT '删除标识(1删除 0未删除）',
   PRIMARY KEY (`category_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '类别表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of category
 -- ----------------------------
-INSERT INTO `category` VALUES (1, '女装 /大衣', '65d4300d-a44a-4ce6-a344-81fedfcc7bf8.jpg');
-INSERT INTO `category` VALUES (2, '男装 /运动户外', 'ba33100c-bfe6-4ab2-ae1f-9d1c66863122.jpg');
-INSERT INTO `category` VALUES (3, '女鞋 /男鞋 /箱包', '4dc606ab-adf8-4398-a63c-0f900a08d906.jpg');
-INSERT INTO `category` VALUES (4, '美妆 /个人护理', '817a9e79-d4d4-401a-95dc-a69a2d597a32.jpg');
-INSERT INTO `category` VALUES (5, '腕表 /眼镜 /珠宝饰品', '3a7105fa-d756-4d11-97f3-3b1548190c7d.jpg');
-INSERT INTO `category` VALUES (6, '手机 /数码 /电脑办公', '610c7837-844b-46f9-a70b-7103e5e1ed3d.jpg');
-INSERT INTO `category` VALUES (7, '母婴玩具', '994f2ffc-b6f3-4bb5-b1ea-bfd885d900e9.jpg');
-INSERT INTO `category` VALUES (8, '零食 /茶酒 /进口食品', 'b04b76b5-af79-48a6-a802-1a91a8327b5c.jpg');
-INSERT INTO `category` VALUES (9, '生鲜水果', '0b341c64-eaab-4e63-a518-758fa969c36d.jpg');
-INSERT INTO `category` VALUES (10, '大家电 /生活电器', 'd983b737-27b4-4ff7-bb8d-6654e72869e2.jpg');
-INSERT INTO `category` VALUES (11, '家居建材', '7171f8b1-7fef-4b95-9477-34cd726ecc76.jpg');
-INSERT INTO `category` VALUES (12, '汽车 /配件 /用品', '27512309-957f-4065-b022-7956075e9de0.jpg');
-INSERT INTO `category` VALUES (13, '家纺 /家饰 /鲜花', 'e9b80ef3-7a74-4ee9-aba1-61f5506f6dd9.jpg');
-INSERT INTO `category` VALUES (14, '医药保健', '0029c7ee-6c66-4b3a-887b-475ef3a6bdee.jpg');
-INSERT INTO `category` VALUES (15, '厨具 /收纳 /宠物', 'da6f2676-68fc-411c-87d7-490db6b25b31.jpg');
-INSERT INTO `category` VALUES (16, '图书音像', '4601eb3f-2a7a-45d2-809d-8d0ba2260aed.jpg');
+INSERT INTO `category` VALUES (1, '女装 /大衣', '65d4300d-a44a-4ce6-a344-81fedfcc7bf8.jpg', '0');
+INSERT INTO `category` VALUES (2, '男装 /运动户外', 'ba33100c-bfe6-4ab2-ae1f-9d1c66863122.jpg', '0');
+INSERT INTO `category` VALUES (3, '女鞋 /男鞋 /箱包', '4dc606ab-adf8-4398-a63c-0f900a08d906.jpg', '0');
+INSERT INTO `category` VALUES (4, '美妆 /个人护理', '817a9e79-d4d4-401a-95dc-a69a2d597a32.jpg', '0');
+INSERT INTO `category` VALUES (5, '腕表 /眼镜 /珠宝饰品', '3a7105fa-d756-4d11-97f3-3b1548190c7d.jpg', '0');
+INSERT INTO `category` VALUES (6, '手机 /数码 /电脑办公', '610c7837-844b-46f9-a70b-7103e5e1ed3d.jpg', '0');
+INSERT INTO `category` VALUES (7, '母婴玩具', '994f2ffc-b6f3-4bb5-b1ea-bfd885d900e9.jpg', '0');
+INSERT INTO `category` VALUES (8, '零食 /茶酒 /进口食品', 'b04b76b5-af79-48a6-a802-1a91a8327b5c.jpg', '0');
+INSERT INTO `category` VALUES (9, '生鲜水果', '0b341c64-eaab-4e63-a518-758fa969c36d.jpg', '0');
+INSERT INTO `category` VALUES (10, '大家电 /生活电器', 'd983b737-27b4-4ff7-bb8d-6654e72869e2.jpg', '0');
+INSERT INTO `category` VALUES (11, '家居建材', '7171f8b1-7fef-4b95-9477-34cd726ecc76.jpg', '0');
+INSERT INTO `category` VALUES (12, '汽车 /配件 /用品', '27512309-957f-4065-b022-7956075e9de0.jpg', '0');
+INSERT INTO `category` VALUES (13, '家纺 /家饰 /鲜花', 'e9b80ef3-7a74-4ee9-aba1-61f5506f6dd9.jpg', '0');
+INSERT INTO `category` VALUES (14, '医药保健', '0029c7ee-6c66-4b3a-887b-475ef3a6bdee.jpg', '0');
+INSERT INTO `category` VALUES (15, '厨具 /收纳 /宠物', 'da6f2676-68fc-411c-87d7-490db6b25b31.jpg', '0');
+INSERT INTO `category` VALUES (16, '图书音像', '4601eb3f-2a7a-45d2-809d-8d0ba2260aed.jpg', '0');
 
 -- ----------------------------
 -- Table structure for product
@@ -6448,7 +6449,7 @@ CREATE TABLE `review`  (
   `review_createdate` datetime(0) NOT NULL COMMENT '创建日期',
   `review_user_id` int(10) NOT NULL COMMENT '关联用户id',
   `review_product_id` int(10) NOT NULL COMMENT '关联产品id',
-  `review_orderItem_id` int(10) NOT NULL COMMENT '关联订单i详细id',
+  `review_orderItem_id` int(10) NOT NULL COMMENT '关联订单详细id',
   PRIMARY KEY (`review_id`) USING BTREE,
   INDEX `review_user_id`(`review_user_id`) USING BTREE,
   INDEX `review_product_id`(`review_product_id`) USING BTREE,
@@ -6552,6 +6553,7 @@ CREATE TABLE `user`  (
   `user_address` char(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '所在地地址',
   `user_homeplace` char(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '家乡',
   `user_profile_picture_src` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户头像',
+  `del_flag` tinyint(1) DEFAULT '0' COMMENT '删除标识(1删除 0未删除）',
   PRIMARY KEY (`user_id`) USING BTREE,
   UNIQUE INDEX `un_user_name`(`user_name`) USING BTREE,
   INDEX `user_address`(`user_address`) USING BTREE,
@@ -6563,23 +6565,23 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'a120', 'MRJIANG', 'cc123.0', '江超', 0, '2013-12-01', '610112', '110100', '8ba4edd6-0c92-46be-b9c4-65fa4883426b.jpg');
-INSERT INTO `user` VALUES (3, 'MRJIANG', '如有巧合', 'cc123.0', '流年', 0, '2018-05-11', '110101', '130000', '5835a2b3-5f44-4423-812e-1ad5cecb3020.png');
-INSERT INTO `user` VALUES (6, 'a1209577113', '如有巧合丶', 'cc123.0', '', 0, '2018-05-07', '230102', '130000', '');
-INSERT INTO `user` VALUES (7, '李浩', '李', 'cc123.0', '李浩', 0, '1997-06-22', '110109', '130000', 'fd834bfc-da2c-4dce-907e-1df54415b0fd.jpg');
-INSERT INTO `user` VALUES (8, '聚散又依依', '聚散又依依', 'a1392432919', '邓云涛', 0, '1997-04-05', '110101', '130000', '78659273-05ec-4089-b94c-789f61ecdbf6.jpg');
-INSERT INTO `user` VALUES (9, '红豆豆', '豆豆', 'li19970622', '红豆豆', 1, '2000-05-12', '510923', '130000', '6ffe783e-bbb1-4aa2-8207-b3fda65bcebc.jpg');
-INSERT INTO `user` VALUES (10, '兰文斌', '停车坐爱枫林晚', 'ln221397', '老男孩', 0, '2018-05-10', '511922', '130000', '599e3499-da42-494c-a1ab-85d0548a857a.jpg');
-INSERT INTO `user` VALUES (11, '明明', '小明', 'li19970622', '红豆豆', 0, '2018-05-01', '110101', '130000', '025639f4-537a-4bdc-a9fb-279e9dfac1f8.jpg');
-INSERT INTO `user` VALUES (12, '霜叶红于二月花', '王九日', 'a666', '', 0, '1999-10-01', '320583', '130000', '');
-INSERT INTO `user` VALUES (13, '那倒是', '加尔奈特巴斯塔', 'ln221379', '', 0, '2018-05-04', '610113', '130000', '');
-INSERT INTO `user` VALUES (14, '王999', '王恒', 'a999999999', '王蓝', 0, '1995-01-08', '230112', '130000', '');
-INSERT INTO `user` VALUES (15, '我变强了', '李有生', 'a789', '', 0, '1980-09-04', '370102', '130000', '');
-INSERT INTO `user` VALUES (16, '柯6', '我的兄弟叫顺溜', 'hui6', '柯旭', 1, '2001-01-07', '420102', '130000', '');
-INSERT INTO `user` VALUES (17, 'bao', '可乐', '123456a', '小猫咪', 0, '2002-02-16', '610113', '130000', 'cbb05079-5cc9-42a6-a76a-4890418f5121.jpg');
-INSERT INTO `user` VALUES (18, '西安', '西安', 'cc123.0', '西安', 0, '2018-05-03', '110101', '130000', '');
-INSERT INTO `user` VALUES (19, 'b120', '人员', 'cc123.0', '其他', 0, '2018-05-01', '110101', '130000', '29baa916-f0e7-441c-bb0a-45dee0cdebb7.jpg');
-INSERT INTO `user` VALUES (20, 'c120', 'aaa', 'cc123.0', '', 0, '2018-05-03', '110101', '130000', '');
-INSERT INTO `user` VALUES (21, 'd120', '任意切换', 'cc123.0', '', 0, '2018-05-09', '110101', '130000', '');
+INSERT INTO `user` VALUES (1, 'a120', 'MRJIANG', 'cc123.0', '江超', '0', '2013-12-01', '610112', '110100', '8ba4edd6-0c92-46be-b9c4-65fa4883426b.jpg', '0');
+INSERT INTO `user` VALUES (3, 'MRJIANG', '如有巧合', 'cc123.0', '流年', '0', '2018-05-11', '110101', '130000', '5835a2b3-5f44-4423-812e-1ad5cecb3020.png', '0');
+INSERT INTO `user` VALUES (6, 'a1209577113', '如有巧合丶', 'cc123.0', '', '0', '2018-05-07', '230102', '130000', '', '0');
+INSERT INTO `user` VALUES (7, '李浩', '李', 'cc123.0', '李浩', '0', '1997-06-22', '110109', '130000', 'fd834bfc-da2c-4dce-907e-1df54415b0fd.jpg', '0');
+INSERT INTO `user` VALUES (8, '聚散又依依', '聚散又依依', 'a1392432919', '邓云涛', '0', '1997-04-05', '110101', '130000', '78659273-05ec-4089-b94c-789f61ecdbf6.jpg', '0');
+INSERT INTO `user` VALUES (9, '红豆豆', '豆豆', 'li19970622', '红豆豆', '1', '2000-05-12', '510923', '130000', '6ffe783e-bbb1-4aa2-8207-b3fda65bcebc.jpg', '0');
+INSERT INTO `user` VALUES (10, '兰文斌', '停车坐爱枫林晚', 'ln221397', '老男孩', '0', '2018-05-10', '511922', '130000', '599e3499-da42-494c-a1ab-85d0548a857a.jpg', '0');
+INSERT INTO `user` VALUES (11, '明明', '小明', 'li19970622', '红豆豆', '0', '2018-05-01', '110101', '130000', '025639f4-537a-4bdc-a9fb-279e9dfac1f8.jpg', '0');
+INSERT INTO `user` VALUES (12, '霜叶红于二月花', '王九日', 'a666', '', '0', '1999-10-01', '320583', '130000', '', '0');
+INSERT INTO `user` VALUES (13, '那倒是', '加尔奈特巴斯塔', 'ln221379', '', '0', '2018-05-04', '610113', '130000', '', '0');
+INSERT INTO `user` VALUES (14, '王999', '王恒', 'a999999999', '王蓝', '0', '1995-01-08', '230112', '130000', '', '0');
+INSERT INTO `user` VALUES (15, '我变强了', '李有生', 'a789', '', '0', '1980-09-04', '370102', '130000', '', '0');
+INSERT INTO `user` VALUES (16, '柯6', '我的兄弟叫顺溜', 'hui6', '柯旭', '1', '2001-01-07', '420102', '130000', '', '0');
+INSERT INTO `user` VALUES (17, 'bao', '可乐', '123456a', '小猫咪', '0', '2002-02-16', '610113', '130000', 'cbb05079-5cc9-42a6-a76a-4890418f5121.jpg', '0');
+INSERT INTO `user` VALUES (18, '西安', '西安', 'cc123.0', '西安', '0', '2018-05-03', '110101', '130000', '', '0');
+INSERT INTO `user` VALUES (19, 'b120', '人员', 'cc123.0', '其他', '0', '2018-05-01', '110101', '130000', '29baa916-f0e7-441c-bb0a-45dee0cdebb7.jpg', '0');
+INSERT INTO `user` VALUES (20, 'c120', 'aaa', 'cc123.0', '', '0', '2018-05-03', '110101', '130000', '', '0');
+INSERT INTO `user` VALUES (21, 'd120', '任意切换', 'cc123.0', '', '0', '2018-05-09', '110101', '130000', '', '0');
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -47,11 +47,23 @@
             </foreach>
         </where>
     </delete>
+
+    <delete id="deleteData" parameterType="java.lang.Integer">
+        DELETE FROM review
+        <where>
+            review_id =#{id}
+        </where>
+    </delete>
     <select id="select" resultMap="reviewMap">
-        SELECT review_id,review_content,review_createDate,review_user_id,review_product_id FROM review
+        SELECT review_id,review_content, date_format(review_createDate,'%Y-%m-%d %H:%i:%s') as review_createDate,review_user_id,review_product_id FROM review
         <if test="review != null">
             <where>
-                <if test="review.review_content != null">review_content = #{review.review_content}</if>
+                <if test="review.review_content != null">
+                    AND review_content like concat('%', #{review.review_content}, '%')
+                </if>
+                <if test="review.review_createDate != null and review.review_createDate != ''">
+                    and date_format(review_createDate,'%Y-%m-%d') = #{review.review_createDate}
+                </if>
             </where>
         </if>
         <if test="pageUtil != null">
@@ -59,7 +71,7 @@
         </if>
     </select>
     <select id="selectByUserId" resultMap="reviewMap">
-        SELECT review_id,review_content,review_createDate,review_user_id,review_product_id FROM review
+        SELECT review_id,review_content,date_format(review_createDate,'%Y-%m-%d %H:%i:%s') as review_createDate,review_user_id,review_product_id FROM review
         <where>
             review_user_id = #{user_id}
         </where>
@@ -68,7 +80,7 @@
         </if>
     </select>
     <select id="selectByProductId" resultMap="reviewMap">
-        SELECT review_id,review_content,review_createDate,review_user_id,review_product_id FROM review
+        SELECT review_id,review_content,date_format(review_createDate,'%Y-%m-%d %H:%i:%s') as review_createDate,review_user_id,review_product_id FROM review
         <where>
             review_product_id = #{product_id}
         </where>
@@ -78,7 +90,7 @@
         </if>
     </select>
     <select id="selectOne" resultMap="reviewMap" parameterType="int">
-        SELECT review_id,review_content,review_createDate,review_user_id,review_product_id FROM review
+        SELECT review_id,review_content,date_format(review_createDate,'%Y-%m-%d %H:%i:%s') as review_createDate,review_user_id,review_product_id FROM review
         <where>
             review_id = #{review_id}
         </where>
@@ -87,7 +99,12 @@
         SELECT COUNT(review_id) FROM review
         <if test="review != null">
             <where>
-                <if test="review.review_content != null">review_content = #{review.review_content}</if>
+                <if test="review.review_content != null">
+                    AND review_content like concat('%', #{review.review_content}, '%')
+                </if>
+                <if test="review.review_createDate != null and review.review_createDate != ''">
+                    and date_format(review_createDate,'%Y-%m-%d') = #{review.review_createDate}
+                </if>
             </where>
         </if>
     </select>

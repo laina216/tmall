@@ -52,7 +52,10 @@
                             var category_id = data.categoryList[i].category_id;
                             var category_name = data.categoryList[i].category_name;
                             //显示分类数据
-                            tbody.append("<tr><td><input type='checkbox' class='cbx_select' id='cbx_category_select_" + category_id + "'><label for='cbx_category_select_" + category_id + "'></label></td><td title='" + category_name + "'>" + category_name + "</td><td><span class='td_special' title='查看分类详情'><a href='javascript:void(0)' onclick='getChildPage(this)'>详情</a></span></td><td hidden class='category_id'>" + category_id + "</td></tr>");
+                            tbody.append("<tr><td><input type='checkbox' class='cbx_select' id='cbx_category_select_" + category_id + "'><label for='cbx_category_select_" + category_id + "'></label></td><td title='" + category_name + "'>" + category_name + "</td>" +
+                                "<td><span class='td_special' title='查看分类详情'><a href='javascript:void(0)' onclick='getChildPage(this)'>详情</a></span>" +
+                                "&nbsp;&nbsp;<span class='td_special' title='删除分类'><a href='javascript:void(0)' onclick='delCategoryChildPage(this)'>删除</a></span>"+
+                                "</td><td hidden class='category_id'>" + category_id + "</td></tr>");
                         }
                         //绑定事件
                         tbody.children("tr").click(function () {
@@ -95,6 +98,31 @@
             document.title = "Tmall管理后台 - " + title;
             //ajax请求页面
             ajaxUtil.getPage(url, null, true);
+        }
+
+        //删除分类
+        function delCategoryChildPage(obj) {
+            let url = "admin/category/del/" + $(obj).parents("tr").find(".category_id").text();
+            $(".modal-body").text("您确定要删除该分类吗？");
+            $('#modalDiv').modal();
+            $("#btn-ok").unbind("click").click(function () {
+                $.ajax({
+                    url: url,
+                    type: "get",
+                    traditional: true,
+                    success: function (data) {
+                        if (data.success) {
+                            $('#modalDiv').modal("hide");
+                            //清除数据
+                            dataList.category_name = null;
+                            //获取数据
+                            getData($(this), "admin/category/0/10", null);
+                        } else {
+                            $(".modal-body").text("删除失败！");
+                        }
+                    }
+                });
+            });
         }
 
         //获取页码数据
@@ -147,7 +175,10 @@
                 <td><input type="checkbox" class="cbx_select" id="cbx_category_select_${category.category_id}"><label for="cbx_category_select_${category.category_id}"></label></td>
                 <td title="${category.category_name}">${category.category_name}</td>
                 <td><span class="td_special" title="查看分类详情"><a href="javascript:void(0)"
-                                                               onclick="getChildPage(this)">详情</a></span></td>
+                                                               onclick="getChildPage(this)">详情</a></span>
+                    &nbsp;&nbsp;<span class="td_special" title="删除分类"><a href="javascript:void(0)"
+                                                               onclick="delCategoryChildPage(this)">删除</a></span>
+                </td>
                 <td hidden><span class="category_id">${category.category_id}</span></td>
             </tr>
         </c:forEach>
@@ -155,6 +186,25 @@
     </table>
     <%@ include file="include/page.jsp" %>
     <div class="loader"></div>
+</div>
+
+<%-- 模态框 --%>
+<div class="modal fade" id="modalDiv" tabindex="-1" role="dialog" aria-labelledby="modalDiv" aria-hidden="true"
+     data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">您确定要用户吗？</div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btn-ok">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close">关闭</button>
+            </div>
+        </div>
+        <%-- /.modal-content %--%>
+    </div>
+    <%-- /.modal %--%>
 </div>
 </body>
 </html>

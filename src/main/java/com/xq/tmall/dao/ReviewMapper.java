@@ -11,7 +11,7 @@ public interface ReviewMapper {
     Integer insertOne(@Param("review") Review review);
     Integer updateOne(@Param("review") Review review);
     Integer deleteList(@Param("review_id_list") Integer[] review_id_list);
-
+    Integer deleteData(Integer id);
     List<Review> select(@Param("review") Review review, @Param("pageUtil") PageUtil pageUtil);
     List<Review> selectByUserId(@Param("user_id") Integer user_id, @Param("pageUtil") PageUtil pageUtil);
     List<Review> selectByProductId(@Param("product_id") Integer product_id, @Param("pageUtil") PageUtil pageUtil);

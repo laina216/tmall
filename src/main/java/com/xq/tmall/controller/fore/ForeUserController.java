@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Controller
-public class ForeUserController extends BaseController{
+public class ForeUserController extends BaseController {
     @Autowired
     private AddressService addressService;
     @Autowired
@@ -34,7 +34,7 @@ public class ForeUserController extends BaseController{
 
     //转到前台天猫-用户详情页
     @RequestMapping(value = "userDetails", method = RequestMethod.GET)
-    public String goToUserDetail(HttpSession session, Map<String,Object> map){
+    public String goToUserDetail(HttpSession session, Map<String, Object> map) {
         logger.info("检查用户是否登录");
         Object userId = checkUser(session);
         if (userId != null) {
@@ -49,8 +49,8 @@ public class ForeUserController extends BaseController{
             Address cityAddress = addressService.get(districtAddress.getAddress_regionId().getAddress_areaId());
             logger.info("获取其他地址信息");
             List<Address> addressList = addressService.getRoot();
-            List<Address> cityList = addressService.getList(null,cityAddress.getAddress_regionId().getAddress_areaId());
-            List<Address> districtList = addressService.getList(null,cityAddress.getAddress_areaId());
+            List<Address> cityList = addressService.getList(null, cityAddress.getAddress_regionId().getAddress_areaId());
+            List<Address> districtList = addressService.getList(null, cityAddress.getAddress_areaId());
 
             map.put("addressList", addressList);
             map.put("cityList", cityList);
@@ -58,16 +58,17 @@ public class ForeUserController extends BaseController{
             map.put("addressId", cityAddress.getAddress_regionId().getAddress_areaId());
             map.put("cityAddressId", cityAddress.getAddress_areaId());
             map.put("districtAddressId", districtAddressId);
-            return  "fore/userDetails";
+            return "fore/userDetails";
         } else {
             return "redirect:/login";
         }
     }
+
     //前台天猫-用户更换头像
     @ResponseBody
     @RequestMapping(value = "user/uploadUserHeadImage", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
-    public  String uploadUserHeadImage(@RequestParam MultipartFile file, HttpSession session
-    ){
+    public String uploadUserHeadImage(@RequestParam MultipartFile file, HttpSession session
+    ) {
         String originalFileName = file.getOriginalFilename();
         logger.info("获取图片原始文件名：{}", originalFileName);
         String extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
@@ -88,9 +89,10 @@ public class ForeUserController extends BaseController{
         }
         return jsonObject.toJSONString();
     }
+
     //前台天猫-用户详情更新
-    @RequestMapping(value="user/update",method=RequestMethod.POST,produces ="application/json;charset=utf-8")
-    public String userUpdate(HttpSession session, Map<String,Object> map,
+    @RequestMapping(value = "user/update", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+    public String userUpdate(HttpSession session, Map<String, Object> map,
                              @RequestParam(value = "user_nickname") String user_nickname  /*用户昵称 */,
                              @RequestParam(value = "user_realname") String user_realname  /*真实姓名*/,
                              @RequestParam(value = "user_gender") String user_gender  /*用户性别*/,
@@ -112,20 +114,22 @@ public class ForeUserController extends BaseController{
         if (user_profile_picture_src != null && "".equals(user_profile_picture_src)) {
             user_profile_picture_src = null;
         }
-        User userUpdate = new User()
-                .setUser_id(Integer.parseInt(userId.toString()))
-                .setUser_nickname(new String(user_nickname.getBytes("ISO8859-1"),"UTF-8"))
-                .setUser_realname(new String(user_realname.getBytes("ISO8859-1"),"UTF-8"))
-                .setUser_gender(Byte.valueOf(user_gender))
-                .setUser_birthday(new SimpleDateFormat("yyyy-MM-dd").parse(user_birthday))
-                .setUser_address(new Address().setAddress_areaId(user_address))
-                .setUser_profile_picture_src(user_profile_picture_src)
-                .setUser_password(user_password);
+        User userUpdate = new User();
+        userUpdate.setUser_id(Integer.parseInt(userId.toString()));
+        userUpdate.setUser_nickname(new String(user_nickname.getBytes("ISO8859-1"), "UTF-8"));
+        userUpdate.setUser_realname(new String(user_realname.getBytes("ISO8859-1"), "UTF-8"));
+        userUpdate.setUser_gender(Byte.valueOf(user_gender));
+        userUpdate.setUser_birthday(user_birthday);
+        Address address = new Address();
+        address.setAddress_areaId(user_address);
+        userUpdate.setUser_address(address);
+        userUpdate.setUser_profile_picture_src(user_profile_picture_src);
+        userUpdate.setUser_password(user_password);
         logger.info("执行修改");
-        if (userService.update(userUpdate)){
-             logger.info("修改成功!跳转到用户详情页面");
-             return "redirect:/userDetails";
-         }
-         throw new RuntimeException();
+        if (userService.update(userUpdate)) {
+            logger.info("修改成功!跳转到用户详情页面");
+            return "redirect:/userDetails";
+        }
+        throw new RuntimeException();
     }
 }

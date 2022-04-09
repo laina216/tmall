@@ -9,6 +9,7 @@ public interface ReviewService {
     boolean add(Review review);
     boolean update(Review review);
     boolean deleteList(Integer[] review_id_list);
+    boolean deleteData(Integer id);
 
     List<Review> getList(Review review, PageUtil pageUtil);
     List<Review> getListByUserId(Integer user_id, PageUtil pageUtil);

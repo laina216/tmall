@@ -100,7 +100,10 @@
                             var user_realname = data.userList[i].user_realname;
                             var user_birthday = data.userList[i].user_birthday;
                             //显示用户数据
-                            tbody.append("<tr><td><input type='checkbox' class='cbx_select' id='cbx_user_select_" + user_id + "'><label for='cbx_user_select_" + user_id + "'></label></td><td title='" + user_name + "'>" + user_name + "</td><td title='" + user_nickname + "'>" + user_nickname + "</td><td title='" + user_realname + "'>" + user_realname + "</td><td title='" + user_birthday + "'>" + user_birthday + "</td><td title='" + gender + "'>" + gender + "</td><td><span class='td_special' title='查看用户详情'><a href='javascript:void(0);' onclick='getChildPage(this)'>详情</a></span></td><td hidden  class='user_id'>" + user_id + "</td></tr>");
+                            tbody.append("<tr><td><input type='checkbox' class='cbx_select' id='cbx_user_select_" + user_id + "'><label for='cbx_user_select_" + user_id + "'></label></td><td title='" + user_name + "'>" + user_name + "</td><td title='" + user_nickname + "'>" + user_nickname + "</td><td title='" + user_realname + "'>" + user_realname + "</td><td title='" + user_birthday + "'>" + user_birthday + "</td><td title='" + gender + "'>" + gender + "</td>" +
+                                "<td><span class='td_special' title='查看用户详情'><a href='javascript:void(0);' onclick='getChildPage(this)'>详情</a></span>" +
+                                "&nbsp;&nbsp;<span class='td_special' title='删除用户'><a href='javascript:void(0);' onclick='delUserChildPage(this)'>删除</a></span>"+
+                                "</td><td hidden  class='user_id'>" + user_id + "</td></tr>");
                         }
                         //绑定事件
                         tbody.children("tr").click(function () {
@@ -133,6 +136,39 @@
             document.title = "Tmall管理后台 - 用户详情";
             //ajax请求页面
             ajaxUtil.getPage("user/" + $(obj).parents("tr").find(".user_id").text(), null, true);
+        }
+
+
+        //删除用户
+        function delUserChildPage(obj) {
+            let url = "admin/user/del/" + $(obj).parents("tr").find(".user_id").text();
+            $(".modal-body").text("您确定要删除该用户吗？");
+            $('#modalDiv').modal();
+            $("#btn-ok").unbind("click").click(function () {
+                $.ajax({
+                    url: url,
+                    type: "get",
+                    traditional: true,
+                    success: function (data) {
+                        if (data.success) {
+                            $('#modalDiv').modal("hide");
+                            //清除数据
+                            dataList.user_name = null;
+                            dataList.user_gender_array = null;
+                            dataList.orderBy = null;
+                            dataList.isDesc = true;
+                            //获取数据
+                            getData($(this), "admin/user/0/10", null);
+                            //清除排序样式
+                            var table = $("#table_user_list");
+                            table.find("span.orderByDesc,span.orderByAsc").css("opacity","0");
+                            table.find("th.data_info").attr("data-sort","asc");
+                        } else {
+                            $(".modal-body").text("删除失败！");
+                        }
+                    }
+                });
+            });
         }
 
         //获取页码数据
@@ -229,7 +265,10 @@
                     </c:choose>
                 </td>
                 <td><span class="td_special" title="查看用户详情"><a href='javascript:void(0)'
-                                                               onclick='getChildPage(this)'>详情</a></span></td>
+                                                               onclick='getChildPage(this)'>详情</a></span>
+                    &nbsp;&nbsp;<span class="td_special" title="删除用户"><a href='javascript:void(0)'
+                                                               onclick='delUserChildPage(this)'>删除</a></span>
+                </td>
                 <td hidden class="user_id">${user.user_id}</td>
             </tr>
         </c:forEach>
@@ -237,6 +276,25 @@
     </table>
     <%@ include file="include/page.jsp" %>
     <div class="loader"></div>
+</div>
+
+<%-- 模态框 --%>
+<div class="modal fade" id="modalDiv" tabindex="-1" role="dialog" aria-labelledby="modalDiv" aria-hidden="true"
+     data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">您确定要用户吗？</div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btn-ok">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close">关闭</button>
+            </div>
+        </div>
+        <%-- /.modal-content %--%>
+    </div>
+    <%-- /.modal %--%>
 </div>
 </body>
 </html>

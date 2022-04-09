@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service
@@ -18,24 +17,21 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductMapper productMapper;
-    public void setProductMapper(ProductMapper productMapper) {
-        this.productMapper = productMapper;
-    }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public boolean add(Product product) {
-        return productMapper.insertOne(product)>0;
+        return productMapper.insertOne(product) > 0;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public boolean update(Product product) {
-        return productMapper.updateOne(product)>0;
+        return productMapper.updateOne(product) > 0;
     }
 
     @Override
-    public List<Product> getList(Product product, Byte[] product_isEnabled_array,OrderUtil orderUtil, PageUtil pageUtil) {
+    public List<Product> getList(Product product, Byte[] product_isEnabled_array, OrderUtil orderUtil, PageUtil pageUtil) {
         return productMapper.select(product, product_isEnabled_array, orderUtil, pageUtil);
     }
 
@@ -50,8 +46,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Integer getTotal(Product product,Byte[] product_isEnabled_array) {
-        return productMapper.selectTotal(product,product_isEnabled_array);
+    public Integer getTotal(Product product, Byte[] product_isEnabled_array) {
+        return productMapper.selectTotal(product, product_isEnabled_array);
     }
 
     @Override

@@ -10,36 +10,31 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
 @Service
-public class ProductOrderItemServiceImpl implements ProductOrderItemService{
+public class ProductOrderItemServiceImpl implements ProductOrderItemService {
 
     @Autowired
     private ProductOrderItemMapper productOrderItemMapper;
 
-    public void setProductOrderItemMapper(ProductOrderItemMapper productOrderItemMapper) {
-        this.productOrderItemMapper = productOrderItemMapper;
-    }
-
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public boolean add(ProductOrderItem productOrderItem) {
-        return productOrderItemMapper.insertOne(productOrderItem)>0;
+        return productOrderItemMapper.insertOne(productOrderItem) > 0;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public boolean update(ProductOrderItem productOrderItem) {
-        return productOrderItemMapper.updateOne(productOrderItem)>0;
+        return productOrderItemMapper.updateOne(productOrderItem) > 0;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public boolean deleteList(Integer[] productOrderItem_id_list) {
-        return productOrderItemMapper.deleteList(productOrderItem_id_list)>0;
+        return productOrderItemMapper.deleteList(productOrderItem_id_list) > 0;
     }
 
     @Override
@@ -49,17 +44,17 @@ public class ProductOrderItemServiceImpl implements ProductOrderItemService{
 
     @Override
     public List<ProductOrderItem> getListByOrderId(Integer order_id, PageUtil pageUtil) {
-        return productOrderItemMapper.selectByOrderId(order_id,pageUtil);
+        return productOrderItemMapper.selectByOrderId(order_id, pageUtil);
     }
 
     @Override
     public List<ProductOrderItem> getListByUserId(Integer user_id, PageUtil pageUtil) {
-        return productOrderItemMapper.selectByUserId(user_id,pageUtil);
+        return productOrderItemMapper.selectByUserId(user_id, pageUtil);
     }
 
     @Override
     public List<ProductOrderItem> getListByProductId(Integer product_id, PageUtil pageUtil) {
-        return productOrderItemMapper.selectByProductId(product_id,pageUtil);
+        return productOrderItemMapper.selectByProductId(product_id, pageUtil);
     }
 
     @Override
@@ -84,7 +79,7 @@ public class ProductOrderItemServiceImpl implements ProductOrderItemService{
 
     @Override
     public List<OrderGroup> getTotalByProductId(Integer product_id, Date beginDate, Date endDate) {
-        return productOrderItemMapper.getTotalByProductId(product_id,beginDate,endDate);
+        return productOrderItemMapper.getTotalByProductId(product_id, beginDate, endDate);
     }
 
     @Override

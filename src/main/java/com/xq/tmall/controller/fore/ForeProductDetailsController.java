@@ -74,9 +74,13 @@ public class ForeProductDetailsController extends BaseController {
         product.setSingleProductImageList(singleProductImageList);
         product.setDetailProductImageList(detailsProductImageList);
         logger.info("获取产品子信息-产品属性值信息");
-        List<PropertyValue> propertyValueList = propertyValueService.getList(new PropertyValue().setPropertyValue_product(product), null);
+        PropertyValue propertyValue1 = new PropertyValue();
+        propertyValue1.setPropertyValue_product(product);
+        List<PropertyValue> propertyValueList = propertyValueService.getList(propertyValue1, null);
         logger.info("获取产品子信息-分类信息对应的属性列表");
-        List<Property> propertyList = propertyService.getList(new Property().setProperty_category(product.getProduct_category()), null);
+        Property property1 = new Property();
+        property1.setProperty_category(product.getProduct_category());
+        List<Property> propertyList = propertyService.getList(property1, null);
         logger.info("属性列表和属性值列表合并");
         for (Property property : propertyList) {
             for (PropertyValue propertyValue : propertyValueList) {
@@ -102,7 +106,11 @@ public class ForeProductDetailsController extends BaseController {
 
         logger.info("获取猜你喜欢列表");
         Integer category_id = product.getProduct_category().getCategory_id();
-        Integer total = productService.getTotal(new Product().setProduct_category(new Category().setCategory_id(category_id)), new Byte[]{0, 2});
+        Product product1 = new Product();
+        Category category = new Category();
+        category.setCategory_id(category_id);
+        product1.setProduct_category(category);
+        Integer total = productService.getTotal(product1, new Byte[]{0, 2});
         logger.info("分类ID为{}的产品总数为{}条", category_id, total);
         //生成随机数
         int i = new Random().nextInt(total);
@@ -112,7 +120,7 @@ public class ForeProductDetailsController extends BaseController {
         if (i < 0) {
             i = 0;
         }
-        List<Product> loveProductList = productService.getList(new Product().setProduct_category(new Category().setCategory_id(category_id)), new Byte[]{0, 2}, null, new PageUtil().setCount(3).setPageStart(i));
+        List<Product> loveProductList = productService.getList(product1, new Byte[]{0, 2}, null, new PageUtil().setCount(3).setPageStart(i));
         if (loveProductList != null) {
             logger.info("获取产品列表的相应的一张预览图片");
             for (Product loveProduct : loveProductList) {
@@ -160,10 +168,14 @@ public class ForeProductDetailsController extends BaseController {
         logger.info("获取产品详情-属性值信息");
         Product product = new Product();
         product.setProduct_id(product_id);
-        List<PropertyValue> propertyValueList = propertyValueService.getList(new PropertyValue().setPropertyValue_product(product), null);
+        PropertyValue propertyValue1 = new PropertyValue();
+        propertyValue1.setPropertyValue_product(product);
+        List<PropertyValue> propertyValueList = propertyValueService.getList(propertyValue1, null);
 
         logger.info("获取产品详情-分类信息对应的属性列表");
-        List<Property> propertyList = propertyService.getList(new Property().setProperty_category(product.getProduct_category()), null);
+        Property property1 = new Property();
+        property1.setProperty_category(product.getProduct_category());
+        List<Property> propertyList = propertyService.getList(property1, null);
 
         logger.info("属性列表和属性值列表合并");
         for (Property property : propertyList) {
@@ -187,7 +199,11 @@ public class ForeProductDetailsController extends BaseController {
     @RequestMapping(value = "guess/{cid}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     public String guessYouLike(@PathVariable("cid") Integer cid, @RequestParam Integer guessNumber) {
         logger.info("获取猜你喜欢列表");
-        Integer total = productService.getTotal(new Product().setProduct_category(new Category().setCategory_id(cid)), new Byte[]{0, 2});
+        Category category = new Category();
+        category.setCategory_id(cid);
+        Product product = new Product();
+        product.setProduct_category(category);
+        Integer total = productService.getTotal(product, new Byte[]{0, 2});
         logger.info("分类ID为{}的产品总数为{}条", cid, total);
         //生成随机数
         int i = new Random().nextInt(total);
@@ -209,7 +225,7 @@ public class ForeProductDetailsController extends BaseController {
         }
 
         logger.info("guessNumber值为{}，新guessNumber值为{}", guessNumber, i);
-        List<Product> loveProductList = productService.getList(new Product().setProduct_category(new Category().setCategory_id(cid)), new Byte[]{0, 2}, null, new PageUtil().setCount(3).setPageStart(i));
+        List<Product> loveProductList = productService.getList(product, new Byte[]{0, 2}, null, new PageUtil().setCount(3).setPageStart(i));
         if (loveProductList != null) {
             logger.info("获取产品列表的相应的一张预览图片");
             for (Product loveProduct : loveProductList) {

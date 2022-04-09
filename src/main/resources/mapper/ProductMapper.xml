@@ -45,7 +45,7 @@
         </where>
     </update>
     <select id="select" resultMap="productMap">
-        SELECT product_id,product_name,product_title,product_price,product_sale_price,product_create_date,product_isEnabled,product_category_id
+        SELECT product_id,product_name,product_title,product_price,product_sale_price,date_format(product_create_date,'%Y-%m-%d %H:%i:%s') as product_create_date,product_isEnabled,product_category_id
         <if test="orderUtil != null">
             <if test='orderUtil.orderBy == "product_sale_count"'>
             ,(SELECT SUM(productOrderItem_number) FROM productOrderItem WHERE productOrderItem_product_id = product_id) AS #{orderUtil.orderBy}
@@ -81,7 +81,7 @@
     </select>
     <select id="selectMoreList" resultMap="productMap">
         SELECT
-        product_id,product_name,product_title,product_price,product_sale_price,product_create_date,product_isEnabled,product_category_id
+        product_id,product_name,product_title,product_price,product_sale_price,date_format(product_create_date,'%Y-%m-%d %H:%i:%s') as product_create_date,product_isEnabled,product_category_id
         <if test="orderUtil != null">
             <if test='orderUtil.orderBy == "product_sale_count"'>
                 ,(SELECT SUM(productOrderItem_number) FROM productOrderItem WHERE productOrderItem_product_id =
@@ -122,7 +122,7 @@
         </if>
     </select>
     <select id="selectOne" resultMap="productMap" parameterType="int">
-        SELECT product_id,product_name,product_title,product_price,product_sale_price,product_create_date,product_isEnabled,product_category_id FROM product
+        SELECT product_id,product_name,product_title,product_price,product_sale_price,date_format(product_create_date,'%Y-%m-%d %H:%i:%s') as product_create_date,product_isEnabled,product_category_id FROM product
         <where>
             product_id = #{product_id}
         </where>

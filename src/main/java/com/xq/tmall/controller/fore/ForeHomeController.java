@@ -52,7 +52,9 @@ public class ForeHomeController extends BaseController {
         logger.info("获取每个分类下的产品列表");
         for (Category category : categoryList) {
             logger.info("获取分类id为{}的产品集合，按产品ID倒序排序", category.getCategory_id());
-            List<Product> productList = productService.getList(new Product().setProduct_category(category), new Byte[]{0, 2}, new OrderUtil("product_id", true), new PageUtil(0, 8));
+            Product product1 = new Product();
+            product1.setProduct_category(category);
+            List<Product> productList = productService.getList(product1, new Byte[]{0, 2}, new OrderUtil("product_id", true), new PageUtil(0, 8));
             if (productList != null) {
                 for (Product product : productList) {
                     Integer product_id = product.getProduct_id();
@@ -87,7 +89,11 @@ public class ForeHomeController extends BaseController {
             return object.toJSONString();
         }
         logger.info("获取分类ID为{}的产品标题数据", category_id);
-        List<Product> productList = productService.getTitle(new Product().setProduct_category(new Category().setCategory_id(category_id)), new PageUtil(0, 40));
+        Category category1 = new Category();
+        category1.setCategory_id(category_id);
+        Product product = new Product();
+        product.setProduct_category(category1);
+        List<Product> productList = productService.getTitle(product, new PageUtil(0, 40));
         List<List<Product>> complexProductList = new ArrayList<>(8);
         List<Product> products = new ArrayList<>(5);
         for (int i = 0; i < productList.size(); i++) {
@@ -99,7 +105,9 @@ public class ForeHomeController extends BaseController {
             products.add(productList.get(i));
         }
         complexProductList.add(products);
-        Category category = new Category().setCategory_id(category_id).setComplexProductList(complexProductList);
+        Category category = new Category();
+        category.setCategory_id(category_id);
+        category.setComplexProductList(complexProductList);
         object.put("success", true);
         object.put("category", category);
         return object.toJSONString();

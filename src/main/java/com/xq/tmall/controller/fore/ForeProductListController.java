@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
@@ -67,7 +66,9 @@ public class ForeProductListController extends BaseController {
         Integer searchType = null;
 
         if (category_id != null) {
-            product.setProduct_category(new Category().setCategory_id(category_id));
+            Category category = new Category();
+            category.setCategory_id(category_id);
+            product.setProduct_category(category);
             searchType = category_id;
         }
         //关键词数组
@@ -135,7 +136,9 @@ public class ForeProductListController extends BaseController {
         Integer searchType = null;
 
         if (category_id != null) {
-            product.setProduct_category(new Category().setCategory_id(category_id));
+            Category category = new Category();
+            category.setCategory_id(category_id);
+            product.setProduct_category(category);
             searchType = category_id;
         }
         if (product_name != null) {

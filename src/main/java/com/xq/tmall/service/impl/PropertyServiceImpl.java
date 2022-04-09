@@ -9,22 +9,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class PropertyServiceImpl implements PropertyService{
+public class PropertyServiceImpl implements PropertyService {
     @Autowired
     private PropertyMapper propertyMapper;
 
-    public void setPropertyMapper(PropertyMapper propertyMapper) {
-        this.propertyMapper = propertyMapper;
-    }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public boolean add(Property property) {
-        return propertyMapper.insertOne(property)>0;
+        return propertyMapper.insertOne(property) > 0;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
@@ -36,18 +32,18 @@ public class PropertyServiceImpl implements PropertyService{
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public boolean update(Property property) {
-        return propertyMapper.updateOne(property)>0;
+        return propertyMapper.updateOne(property) > 0;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public boolean deleteList(Integer[] property_id_list) {
-        return propertyMapper.deleteList(property_id_list)>0;
+        return propertyMapper.deleteList(property_id_list) > 0;
     }
 
     @Override
     public List<Property> getList(Property property, PageUtil pageUtil) {
-        return propertyMapper.select(property,pageUtil);
+        return propertyMapper.select(property, pageUtil);
     }
 
     @Override
