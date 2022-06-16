@@ -3,33 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '37c71415a4d848057a028fe34143bc4d665cb469'
-    oldFile: !uuid '90a219d0c455166536ceba306bf8ba0e33f8dd90'
+    newFile: !uuid '660af4dbfc070261537bc1b7d070cc8395f07a1b'
+    oldFile: !uuid '37c71415a4d848057a028fe34143bc4d665cb469'
   /src/main:
-    newFile: !uuid 'a21d6e11023398351ee3b883e2bc35d461694c6d'
-    oldFile: !uuid '386e4258e96ca571a7463fb23ed1793e4df28e5b'
-  /src/main/java:
-    newFile: !uuid '90cf6771f1998199f7c355a66e766d64607b3772'
-    oldFile: !uuid '656033425f8828cf8c5c8e704183636c3d60002a'
-  /src/main/java/com:
-    newFile: !uuid '289435b9a05026bd167c2bb474492ef8b414b45e'
-    oldFile: !uuid 'a0522812db3144129b9f67ccfbcf5633cbd7b3ec'
-  /src/main/java/com/xq:
-    newFile: !uuid 'e126e996f9d4e6b5f59a4ac8c0d8236cc3b9061a'
-    oldFile: !uuid 'a734e4456b0f7be7f8f82761d6b3b75d0f9597ab'
-  /src/main/java/com/xq/tmall:
-    newFile: !uuid 'd0d5abde2f4a568e13d46e250520a1d235d2cc24'
-    oldFile: !uuid 'dbc68a51ff82ca9ffb77a1dc6b21fad99db9e90b'
-  /src/main/java/com/xq/tmall/controller:
-    newFile: !uuid '0c04cbbb4ba52110b968019b8c77feef517a0fd3'
-    oldFile: !uuid '90951bf32eb6653df3f09dd2a1c953e67686ad38'
-  /src/main/java/com/xq/tmall/controller/fore:
-    newFile: !uuid '576af7f51b1f73c2d772d499f44c3b0cfb6075b9'
-    oldFile: !uuid '5bd6c8f34bddda351635a6c7c23d60bc31986b23'
-  /src/main/java/com/xq/tmall/controller/fore/ForeRegisterController.java:
-    newFile: !uuid 'ba10a8c488ab3a5ab00fd4f05ac17366555642ad'
-    oldFile: !uuid '8a10cc624e622ebed22609ef1a9c2c7c7436cc8d'
-gitCommitId: !uuid '55d60169af6e58606a3d79c5ddd474d8f2e9a74c'
+    newFile: !uuid '109bf3120dd152297c4a7403613eb6d0503e8413'
+    oldFile: !uuid 'a21d6e11023398351ee3b883e2bc35d461694c6d'
+  /src/main/webapp:
+    newFile: !uuid '180a58817ed1a3b4c5f8e00113b8aa271d794c37'
+    oldFile: !uuid 'bfc58c19b0fa9c4197183a5c0c6903652a00686a'
+  /src/main/webapp/WEB-INF:
+    newFile: !uuid '68d9115571d9ebb89c5c428fcf1109dcbbff817e'
+    oldFile: !uuid '0d5ddc24baafd1f5e14a57f73d645ee6ca602c5f'
+  /src/main/webapp/WEB-INF/page:
+    newFile: !uuid '76f91a0db8ccb694b1fa769b2a929725ffd2dc15'
+    oldFile: !uuid 'c6c759529052c6c093f36da8b4957fb2875e8c7c'
+  /src/main/webapp/WEB-INF/page/admin:
+    newFile: !uuid 'f0fd1bbcc10ad390e499ce81432d68e24634867c'
+    oldFile: !uuid '42f015340e419eba77ee8abdf02d023de85afe61'
+  /src/main/webapp/WEB-INF/page/admin/loginPage.jsp:
+    newFile: !uuid '5a7ffcf52112caa2b501bc16fa947b0a921577d1'
+    oldFile: !uuid '97b8be1bfdd8b4128beae0879df638024ae857c3'
+gitCommitId: !uuid 'be53a5f2f324f4c117547fb2bfb0b9155ab94845'
 renames: {
   }
-revisionId: 30
+revisionId: 31
