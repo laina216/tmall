@@ -3,33 +3,33 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '90a219d0c455166536ceba306bf8ba0e33f8dd90'
-    oldFile: !uuid 'f29e6310525974f842262e943ab866e73d822127'
+    newFile: !uuid '37c71415a4d848057a028fe34143bc4d665cb469'
+    oldFile: !uuid '90a219d0c455166536ceba306bf8ba0e33f8dd90'
   /src/main:
-    newFile: !uuid '386e4258e96ca571a7463fb23ed1793e4df28e5b'
-    oldFile: !uuid '1f04efb7d37cd16538949af81b69ede0879e5ce6'
+    newFile: !uuid 'a21d6e11023398351ee3b883e2bc35d461694c6d'
+    oldFile: !uuid '386e4258e96ca571a7463fb23ed1793e4df28e5b'
   /src/main/java:
-    newFile: !uuid '656033425f8828cf8c5c8e704183636c3d60002a'
-    oldFile: !uuid 'dcd7e5359b5451901cd2cc5c5e523cb2161a23f2'
+    newFile: !uuid '90cf6771f1998199f7c355a66e766d64607b3772'
+    oldFile: !uuid '656033425f8828cf8c5c8e704183636c3d60002a'
   /src/main/java/com:
-    newFile: !uuid 'a0522812db3144129b9f67ccfbcf5633cbd7b3ec'
-    oldFile: !uuid 'aa875597afe382fcb486782a9306058f3f369029'
+    newFile: !uuid '289435b9a05026bd167c2bb474492ef8b414b45e'
+    oldFile: !uuid 'a0522812db3144129b9f67ccfbcf5633cbd7b3ec'
   /src/main/java/com/xq:
-    newFile: !uuid 'a734e4456b0f7be7f8f82761d6b3b75d0f9597ab'
-    oldFile: !uuid 'c694da50165ec120690da08d45c361689c65f4e3'
+    newFile: !uuid 'e126e996f9d4e6b5f59a4ac8c0d8236cc3b9061a'
+    oldFile: !uuid 'a734e4456b0f7be7f8f82761d6b3b75d0f9597ab'
   /src/main/java/com/xq/tmall:
-    newFile: !uuid 'dbc68a51ff82ca9ffb77a1dc6b21fad99db9e90b'
-    oldFile: !uuid '24acf8382c103de6f011ae48e75790b4db6f13c9'
+    newFile: !uuid 'd0d5abde2f4a568e13d46e250520a1d235d2cc24'
+    oldFile: !uuid 'dbc68a51ff82ca9ffb77a1dc6b21fad99db9e90b'
   /src/main/java/com/xq/tmall/controller:
-    newFile: !uuid '90951bf32eb6653df3f09dd2a1c953e67686ad38'
-    oldFile: !uuid '1b40ff3c357a81c2fcfc5efc04452d6fa7e21788'
+    newFile: !uuid '0c04cbbb4ba52110b968019b8c77feef517a0fd3'
+    oldFile: !uuid '90951bf32eb6653df3f09dd2a1c953e67686ad38'
   /src/main/java/com/xq/tmall/controller/fore:
-    newFile: !uuid '5bd6c8f34bddda351635a6c7c23d60bc31986b23'
-    oldFile: !uuid '50ececf30150c88fbe9f36ebe3217afaf517254a'
+    newFile: !uuid '576af7f51b1f73c2d772d499f44c3b0cfb6075b9'
+    oldFile: !uuid '5bd6c8f34bddda351635a6c7c23d60bc31986b23'
   /src/main/java/com/xq/tmall/controller/fore/ForeRegisterController.java:
-    newFile: !uuid '8a10cc624e622ebed22609ef1a9c2c7c7436cc8d'
-    oldFile: !uuid 'a42b38f63530d414527cb949d168941669bcf8b3'
-gitCommitId: !uuid '419e9e2f74e712703bb6b0a2a50717907561ada3'
+    newFile: !uuid 'ba10a8c488ab3a5ab00fd4f05ac17366555642ad'
+    oldFile: !uuid '8a10cc624e622ebed22609ef1a9c2c7c7436cc8d'
+gitCommitId: !uuid '55d60169af6e58606a3d79c5ddd474d8f2e9a74c'
 renames: {
   }
-revisionId: 29
+revisionId: 30
