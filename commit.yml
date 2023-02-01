@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '4a9b5a852b2d84b400c297ead9daa5f8d460a3e0'
-    oldFile: !uuid 'ebfff9a0dba347f24c4a9774767ea4cd1f115935'
+    newFile: !uuid '04941ed08ef104477cf045629421126b3d60ab94'
+    oldFile: !uuid '4a9b5a852b2d84b400c297ead9daa5f8d460a3e0'
   /src/main:
-    newFile: !uuid '13f06892975bed38f0c6b6023361290cbfcf0de7'
-    oldFile: !uuid 'db245c3c4f0a5cce01607ebae4e30b1e91393b2e'
+    newFile: !uuid '880905d5aeb95847baf30b6d896f28479bf4e7e1'
+    oldFile: !uuid '13f06892975bed38f0c6b6023361290cbfcf0de7'
   /src/main/resources:
-    newFile: !uuid 'cd11f1468194a01bcd72b28dfa4379ae5dd72927'
-    oldFile: !uuid 'b3372aad949a3f1e0d4ecbba6fe98c13c07005fd'
-  /src/main/resources/sql:
-    newFile: !uuid '2ec60b3524e7e49c432387264a8f984c0f62e8f5'
-    oldFile: !uuid 'bb5aa2516094ad367fef695a495403f2a2e7b50b'
-  /src/main/resources/sql/tmalldemodb.sql:
-    newFile: !uuid '6d6455c6b5614b43f9a978bfda927e56184d3524'
-    oldFile: !uuid '751d288346080fbad9fb77c852953423968ea410'
-gitCommitId: !uuid '42fb62af0dce9745fc6c127f41a31a7a690aa36e'
+    newFile: !uuid '2a00e43853402b7761a951b328c303200fe842b7'
+    oldFile: !uuid 'cd11f1468194a01bcd72b28dfa4379ae5dd72927'
+  /src/main/resources/application-dev.yml:
+    newFile: !uuid 'effdc7ea70163ecce486bcaf74c8df042cb4e988'
+    oldFile: !uuid 'd450fe6a60a2d6ec2f3c14f201a1d62bb24d14a7'
+  /src/main/resources/mapper:
+    newFile: !uuid '47ef0d838e56091be453adf88063cb436c3b4642'
+    oldFile: !uuid '5fbefc2d259dd1eff00ac4b5d8cb753849e3dfc0'
+  /src/main/resources/mapper/ProductOrderItemMapper.xml:
+    newFile: !uuid '0785d2351c60a4a53fbec9890ef6d463696c6335'
+    oldFile: !uuid '10851cf2d0d0f895e2b417b4bb4919ef0b959fdc'
+  /src/main/resources/mapper/ProductOrderMapper.xml:
+    newFile: !uuid '413823c9f2ddb802e0a24fd26393f981046db2d9'
+    oldFile: !uuid 'eb1169415bdda9538f4833903aca537f0efcf506'
+gitCommitId: !uuid 'f6eca082e9526dbc6261b7aaf0c19e15a3edb731'
 renames: {
   }
-revisionId: 36
+revisionId: 37
