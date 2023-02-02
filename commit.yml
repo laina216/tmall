@@ -3,90 +3,42 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '79ed2bf137bd56347349581dcb326bceb544889b'
-    oldFile: !uuid '04941ed08ef104477cf045629421126b3d60ab94'
+    newFile: !uuid '1406bd8a84f6abd3a584fceef0554dfe412049b3'
+    oldFile: !uuid '79ed2bf137bd56347349581dcb326bceb544889b'
   /src/main:
-    newFile: !uuid '124e0fd8baa361361e95c8064cf24ee841b31d2c'
-    oldFile: !uuid '880905d5aeb95847baf30b6d896f28479bf4e7e1'
+    newFile: !uuid '1c5b8c9d59e2b1ce772cdbbea807248138e11afb'
+    oldFile: !uuid '124e0fd8baa361361e95c8064cf24ee841b31d2c'
   /src/main/java:
-    newFile: !uuid '968d5b61dd18d659e90057a344bc2d30711984ef'
-    oldFile: !uuid '3c7e3a2f9dc89afe5952511fd5e918eb834ba0d2'
+    newFile: !uuid 'bd7ca0f56f76193a78ae5a64166519f004c40f3e'
+    oldFile: !uuid '968d5b61dd18d659e90057a344bc2d30711984ef'
   /src/main/java/com:
-    newFile: !uuid '80488d3b7bd4bccc1e7fa27b898f0d3df35169cd'
-    oldFile: !uuid 'a7b061035ec19770f600fd5be12ecd7ce7f53361'
+    newFile: !uuid '01837108f7952366039e20083c670e8a0df42bda'
+    oldFile: !uuid '80488d3b7bd4bccc1e7fa27b898f0d3df35169cd'
   /src/main/java/com/xq:
-    newFile: !uuid '90e3c6d61183dec8bd473d31ffec968571e0fd67'
-    oldFile: !uuid '90e9b5d1f1a74ab7f82d666513af9c44c44033bc'
+    newFile: !uuid '4330ba1f4dc8b1c78ce81bdde4d21dd9fdfdfb23'
+    oldFile: !uuid '90e3c6d61183dec8bd473d31ffec968571e0fd67'
   /src/main/java/com/xq/tmall:
-    newFile: !uuid 'cbeceef25fbf0d4616f0a0829a9d51a5384a8126'
-    oldFile: !uuid '5cac1fe46d79340617b4694a1717d42fb0fc0818'
-  /src/main/java/com/xq/tmall/controller:
-    newFile: !uuid 'eebdb82b80202b8b67b5f8e352a2fd949fcb9f8d'
-    oldFile: !uuid 'a2fca7bb759484851e84b27a9608be61333a9db1'
-  /src/main/java/com/xq/tmall/controller/admin:
-    newFile: !uuid 'accd4fe6b863b8abf760341cce7ba4e04f3fd6ff'
-    oldFile: !uuid 'd1a8c8e17eede16c766b354cc6c8e225fdbb6537'
-  /src/main/java/com/xq/tmall/controller/admin/AccountController.java:
-    newFile: !uuid '185609206fca2b4159d2a816c051359ff26c965d'
-    oldFile: !uuid '112105f5fafefc991651cf7ef6027fc6bb23f30e'
-  /src/main/java/com/xq/tmall/controller/admin/AdminHomeController.java:
-    newFile: !uuid 'fd03b4e44e895f0bfc9452a8e8c22aa81b9ab219'
-    oldFile: !uuid '606c5e7775a15104650e4570280406449ca5abdd'
-  /src/main/java/com/xq/tmall/controller/admin/AdminLoginController.java:
-    newFile: !uuid '1346ce6d22703e7035a25aff31be8abaee4a298e'
-    oldFile: !uuid 'f8c033db26958f5ef7dd5781abe3779cc3190795'
-  /src/main/java/com/xq/tmall/controller/admin/CategoryController.java:
-    newFile: !uuid 'c0a9924123c7a8aaab1aa22da6273478fe96e6d6'
-    oldFile: !uuid 'e677686fb68732ebe529688ce40199f02b675e3d'
-  /src/main/java/com/xq/tmall/controller/admin/OrderController.java:
-    newFile: !uuid '149cdafff0c1e76a2b512048c1a7517878bdc0c6'
-    oldFile: !uuid '9731bfd3dc11b036f78d14a0ce3272f943b1bca3'
-  /src/main/java/com/xq/tmall/controller/admin/ProductController.java:
-    newFile: !uuid '285136fe92cddcd85f73b83f54db336e352141f4'
-    oldFile: !uuid '3c1e152c3f7dd9e6c6469fc956c12384aeb4bbb4'
-  /src/main/java/com/xq/tmall/controller/admin/ReviewController.java:
-    newFile: !uuid '7c5c479534400e6ecae2db461e6d05e39067990d'
-    oldFile: !uuid 'c799631a2fc45e344062ab5c1f54e9c82f8b00b2'
-  /src/main/java/com/xq/tmall/controller/admin/UserController.java:
-    newFile: !uuid 'd9dda8805843ac2158dd3521bbf710a71c31426c'
-    oldFile: !uuid 'f321540b4fe7fbce1e8dc2a3231e52279a2a3fcc'
-  /src/main/java/com/xq/tmall/controller/fore:
-    newFile: !uuid '95bb487c97e5eaa613c5b3d99027d7116374f37f'
-    oldFile: !uuid 'dcd736744509c5a07f7886284d481e01c03bff93'
-  /src/main/java/com/xq/tmall/controller/fore/ForeAddressController.java:
-    newFile: !uuid '98f00df3ea351c160618a3ca92d322ff445b8a0b'
-    oldFile: !uuid '91f8e66f1a5d275259e61b0de679bcc56610aa48'
-  /src/main/java/com/xq/tmall/controller/fore/ForeHomeController.java:
-    newFile: !uuid '3a41695311a24c78dd7e006a4025c250b1036e4d'
-    oldFile: !uuid 'd18e0b067cec38a03952907d8ac4c785ddf5951f'
-  /src/main/java/com/xq/tmall/controller/fore/ForeLoginController.java:
-    newFile: !uuid '5828f25762bd4a706a43b45996a083b7de05f7f2'
-    oldFile: !uuid 'ab48f7054d8bd250ab2c1870a8c4f15409689bf0'
-  /src/main/java/com/xq/tmall/controller/fore/ForeOrderController.java:
-    newFile: !uuid 'fe4bd9b92c73221eff8e40d1dfc3423156e3204f'
-    oldFile: !uuid 'c1b9317f4cdbccdbd7538b2fe047b9e2ae6e3023'
-  /src/main/java/com/xq/tmall/controller/fore/ForeProductDetailsController.java:
-    newFile: !uuid 'd9d6372a4b2013e6433f5f27896df6a70aa6a7e1'
-    oldFile: !uuid 'd40c39732066b30a99e22cdd9993ea08a630453b'
-  /src/main/java/com/xq/tmall/controller/fore/ForeProductListController.java:
-    newFile: !uuid '6e18dd70428dc2c9b9a8a1dee6ad052b566678db'
-    oldFile: !uuid 'a41c3783e3593a1ee11b87e8afc1555aa33542b4'
-  /src/main/java/com/xq/tmall/controller/fore/ForeRegisterController.java:
-    newFile: !uuid 'e226fcdfd65453e6df1e438d38df1a273408d977'
-    oldFile: !uuid 'bd87ca66a138c5690cc4bae0f7a9bd254e4efa76'
-  /src/main/java/com/xq/tmall/controller/fore/ForeReviewController.java:
-    newFile: !uuid 'cb3c31b603753bccb94ad7e476c3e6d75c19b02f'
-    oldFile: !uuid '20a88a36216a19103a445f9ca92cfbf23bf6cdca'
-  /src/main/java/com/xq/tmall/controller/fore/ForeUserController.java:
-    newFile: !uuid '185d13c1c1f86ae7d38ed0f5f058a49dbffec4a1'
-    oldFile: !uuid 'd82f4e46ad816ad558c5e9292ead2d412f759641'
-  /src/main/java/com/xq/tmall/util:
-    newFile: !uuid '021cf85e23766ca0a262f75b49ed826bc7ff7f08'
-    oldFile: !uuid 'f60d7eaf24de3ed080cc67177c88a84bee19e824'
-  /src/main/java/com/xq/tmall/util/Constants.java:
-    newFile: !uuid 'a898f0fab1d996e96b6ed1029f92cb2fb53c4b1c'
+    newFile: !uuid '8d1011c63929069c62827e47896025def767f096'
+    oldFile: !uuid 'cbeceef25fbf0d4616f0a0829a9d51a5384a8126'
+  /src/main/java/com/xq/tmall/config:
+    newFile: !uuid 'fde95da50e6e9919b17bc47896c81f6b3e0af739'
+    oldFile: !uuid '5bd863132d273c0bef54820c36cd8d75f1a8824a'
+  /src/main/java/com/xq/tmall/config/mybatis:
+    newFile: !uuid 'ccefca3cec198938dfae35ab7ebdae52b601ecab'
+    oldFile: !uuid 'cfed1bae338ede54e15fab63fdc9019d4bc7a153'
+  /src/main/java/com/xq/tmall/config/mybatis/MyMetaObjectHandler.java:
+    newFile: !uuid 'edb17f92821ddc12ed37535d066d74fba6f0f491'
+    oldFile: !uuid '288194dfa826af943d684f554617688526046e7f'
+  /src/main/resources:
+    newFile: !uuid '7a940b0ec7ef33d77db3acaa07822b8fb385a187'
+    oldFile: !uuid '2a00e43853402b7761a951b328c303200fe842b7'
+  /src/main/resources/application-pro.yml:
+    newFile: null
+    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
+  /src/main/resources/application-prod.yml:
+    newFile: !uuid 'effdc7ea70163ecce486bcaf74c8df042cb4e988'
     oldFile: null
-gitCommitId: !uuid 'fb5f1839d9079066afc9c8b97b7e203b763c26bf'
+gitCommitId: !uuid 'd74fa3b5db611308cbb0ab5ada0e37a1244f62f8'
 renames: {
   }
-revisionId: 38
+revisionId: 39
