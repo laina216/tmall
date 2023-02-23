@@ -3,33 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '10e020fcd125ad8affb028a0de76b4ff08dce7fb'
-    oldFile: !uuid '90f09a788815fdbfdd750074258fab22ec0a64e8'
+    newFile: !uuid 'c2f5a61b42fea4df7b717dbbeb6814ba4f9da01b'
+    oldFile: !uuid '10e020fcd125ad8affb028a0de76b4ff08dce7fb'
   /src/main:
-    newFile: !uuid '93a1f8532542dc91a1a17a470bcd00e2e10e094b'
-    oldFile: !uuid '28268895ef515d374bff8f96c3a00cf50803396a'
-  /src/main/java:
-    newFile: !uuid 'c832aaca6fcd42f680f55e76557dafaf33c714c0'
-    oldFile: !uuid 'e258c389f69877d33a5fe201c2a6d9955ba7db80'
-  /src/main/java/com:
-    newFile: !uuid '84d2aaf0dd2052ef66ef80395bdf33d9c5f53b28'
-    oldFile: !uuid '20f83437589b5faa1a0c0f615a2c2d3a6c4e849f'
-  /src/main/java/com/xq:
-    newFile: !uuid '496efd0fbc6f67a9c7d857ecaca28b351f9936c4'
-    oldFile: !uuid 'd4d5de2a302eb4d4833ed6dbde00fdfdae90fdbc'
-  /src/main/java/com/xq/tmall:
-    newFile: !uuid '2bf2830179588812df22d6fd278a149c2580a478'
-    oldFile: !uuid '8e1186877faca1062dafa4dd373f735a9daf8f07'
-  /src/main/java/com/xq/tmall/controller:
-    newFile: !uuid 'bd95fc114465ed07cee2c98d98b813434239c965'
-    oldFile: !uuid 'b11067e50d03f869f8076c8e3026243a449a0cdb'
-  /src/main/java/com/xq/tmall/controller/admin:
-    newFile: !uuid '27ea567ff7814971dbd49cad50e715b64499655f'
-    oldFile: !uuid '29af6f4778996f2df14dae9b24083f7af5e11e87'
-  /src/main/java/com/xq/tmall/controller/admin/AccountController.java:
-    newFile: !uuid '61529771fefcbdee3950697dec46443907bd3707'
-    oldFile: !uuid '447ab420ee50feac52c96e0f62f1438a0ea2de6d'
-gitCommitId: !uuid 'fcb28140362d1b58d6316a74f7e21b33afd49608'
+    newFile: !uuid '22c850166ad9828004c416931d39cb4ee277ec17'
+    oldFile: !uuid '93a1f8532542dc91a1a17a470bcd00e2e10e094b'
+  /src/main/resources:
+    newFile: !uuid '28164142657cbf8fb7e0a2722a4c44b62e01a4f1'
+    oldFile: !uuid 'e975502f43f643e21b3d7ba1756c7ee4c561e93f'
+  /src/main/resources/application-dev.yml:
+    newFile: !uuid 'a58a6bcfc6b1adf7e8415274f106e7220b8834d3'
+    oldFile: !uuid '0ecfbea320275d8c45b88a20ead98d61477a1a53'
+  /src/main/resources/application-prod.yml:
+    newFile: !uuid 'a58a6bcfc6b1adf7e8415274f106e7220b8834d3'
+    oldFile: !uuid '0ecfbea320275d8c45b88a20ead98d61477a1a53'
+gitCommitId: !uuid 'ad812161f3cf691c913ca8295c995d90eb1a11aa'
 renames: {
   }
-revisionId: 44
+revisionId: 45
