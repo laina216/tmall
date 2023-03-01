@@ -2,22 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'c2f5a61b42fea4df7b717dbbeb6814ba4f9da01b'
-    oldFile: !uuid '10e020fcd125ad8affb028a0de76b4ff08dce7fb'
-  /src/main:
-    newFile: !uuid '22c850166ad9828004c416931d39cb4ee277ec17'
-    oldFile: !uuid '93a1f8532542dc91a1a17a470bcd00e2e10e094b'
-  /src/main/resources:
-    newFile: !uuid '28164142657cbf8fb7e0a2722a4c44b62e01a4f1'
-    oldFile: !uuid 'e975502f43f643e21b3d7ba1756c7ee4c561e93f'
-  /src/main/resources/application-dev.yml:
-    newFile: !uuid 'a58a6bcfc6b1adf7e8415274f106e7220b8834d3'
-    oldFile: !uuid '0ecfbea320275d8c45b88a20ead98d61477a1a53'
-  /src/main/resources/application-prod.yml:
-    newFile: !uuid 'a58a6bcfc6b1adf7e8415274f106e7220b8834d3'
-    oldFile: !uuid '0ecfbea320275d8c45b88a20ead98d61477a1a53'
-gitCommitId: !uuid 'ad812161f3cf691c913ca8295c995d90eb1a11aa'
+  /README.md:
+    newFile: !uuid '0aeed5b9b94a73c5561b767b5d6f6b578222b032'
+    oldFile: !uuid 'f6ed64dc919e47181f0beabf379204401eae7d10'
+gitCommitId: !uuid 'e4cf0530c8c082845253cacae07c4224867e57b8'
 renames: {
   }
-revisionId: 45
+revisionId: 46
