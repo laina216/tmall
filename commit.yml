@@ -3,24 +3,48 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'c14a9b71649c3a384fba4fbc80716edcc9a669d8'
-    oldFile: !uuid 'c2f5a61b42fea4df7b717dbbeb6814ba4f9da01b'
+    newFile: !uuid '39ece68de857a2c1b814eed491c81d189aed6b4f'
+    oldFile: !uuid 'c14a9b71649c3a384fba4fbc80716edcc9a669d8'
   /src/main:
-    newFile: !uuid 'f3387d4b90f20d70b38ca10680509e66c2cb5236'
-    oldFile: !uuid '22c850166ad9828004c416931d39cb4ee277ec17'
-  /src/main/resources:
-    newFile: !uuid 'b59c43c05bb743fac7dda54ead336af7100d54b5'
-    oldFile: !uuid '28164142657cbf8fb7e0a2722a4c44b62e01a4f1'
-  /src/main/resources/application-dev.yml:
-    newFile: !uuid '4727044fdbb8b49460fd9e44c74c2f8afde9fb13'
-    oldFile: !uuid 'a58a6bcfc6b1adf7e8415274f106e7220b8834d3'
-  /src/main/resources/application-prod.yml:
-    newFile: !uuid '1cfe9a840042cb50f751fdda52e614338a584caf'
-    oldFile: !uuid 'a58a6bcfc6b1adf7e8415274f106e7220b8834d3'
-  /src/main/resources/application.yml:
-    newFile: !uuid '989aa2c85152dffcf49a7b2a8819871268af51c3'
-    oldFile: !uuid '7d8be829e313906d6067b549e934bafebc94a562'
-gitCommitId: !uuid 'ac3c8962fbe1ad472ddde42decc136f9f95152f3'
+    newFile: !uuid 'c9f6df940de7fb7a8592834a0826a079ef8d8a3d'
+    oldFile: !uuid 'f3387d4b90f20d70b38ca10680509e66c2cb5236'
+  /src/main/java:
+    newFile: !uuid 'a7d70c1a3142faa30f7e1f1cdee5181678b9034d'
+    oldFile: !uuid 'c832aaca6fcd42f680f55e76557dafaf33c714c0'
+  /src/main/java/com:
+    newFile: !uuid '542744753254f57f7b02cf060f7b7935e9de74ba'
+    oldFile: !uuid '84d2aaf0dd2052ef66ef80395bdf33d9c5f53b28'
+  /src/main/java/com/xq:
+    newFile: !uuid '4e1fc3f293f735e1bfccc6e6cd228def6d70da21'
+    oldFile: !uuid '496efd0fbc6f67a9c7d857ecaca28b351f9936c4'
+  /src/main/java/com/xq/tmall:
+    newFile: !uuid 'd366e8bf9bff136d9da289e1e3afd0e84fbf3e34'
+    oldFile: !uuid '2bf2830179588812df22d6fd278a149c2580a478'
+  /src/main/java/com/xq/tmall/config:
+    newFile: !uuid '6aac50c284b405c589d3423c4ffa31c1c27d426f'
+    oldFile: !uuid 'fde95da50e6e9919b17bc47896c81f6b3e0af739'
+  /src/main/java/com/xq/tmall/config/datasource:
+    newFile: !uuid 'dd089fcc95d690a445bf27d67ff6223faaf54edc'
+    oldFile: !uuid '07ee2f519da82bbf06bbab8e3cc8ab5662e2e831'
+  /src/main/java/com/xq/tmall/config/datasource/DruidConfiguration.java:
+    newFile: !uuid '8d561b1d63fef2f42776e3c39953b97dd95bb1e5'
+    oldFile: !uuid '71d5a3e503c477be06d01affc164afe9e25d24fb'
+  /src/main/java/com/xq/tmall/config/mybatis:
+    newFile: !uuid '7168193818d5e77a4089815638ec02c25b6aefc1'
+    oldFile: !uuid 'ccefca3cec198938dfae35ab7ebdae52b601ecab'
+  /src/main/java/com/xq/tmall/config/mybatis/MyMetaObjectHandler.java:
+    newFile: null
+    oldFile: !uuid 'edb17f92821ddc12ed37535d066d74fba6f0f491'
+  /src/main/java/com/xq/tmall/config/mybatis/MybatisPlusConfig.java:
+    newFile: !uuid '7451ae546fac5f0fc90965e3b5200461118a20f8'
+    oldFile: !uuid 'd3e15f7dbbd3ecbbdd0ab8fffbbca5ccb08b9a83'
+  /src/main/java/com/xq/tmall/config/swagger2:
+    newFile: !uuid 'd390bcbce8fd7a5fd6840e67babe98f0b86c5951'
+    oldFile: !uuid 'aa45430f6488977382ba0b8b3d2d450ec5c19759'
+  /src/main/java/com/xq/tmall/config/swagger2/Swagger2.java:
+    newFile: !uuid '5613a2419d886d83c4d55cda70724cd7c13325c5'
+    oldFile: !uuid 'd277e93e4bc73eab0c40526f9af19d4b5d1ff508'
+gitCommitId: !uuid '0e7735389d7e32bf400a5357d89d8ca308e57225'
 renames: {
   }
-revisionId: 48
+revisionId: 49
