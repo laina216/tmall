@@ -3,48 +3,33 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '8a2213f32bf2427b6ede06a3dba4cd06941fc7c8'
-    oldFile: !uuid 'ec909e7179777e75985c35e3ab704003d1cf7fd2'
+    newFile: !uuid '41a2828ada24b7b7e57431238c5ff4e526a4f240'
+    oldFile: !uuid '8a2213f32bf2427b6ede06a3dba4cd06941fc7c8'
   /src/main:
-    newFile: !uuid 'c2efbb51dd533db4662ed7fc1e586158b4ac8386'
-    oldFile: !uuid '2fb1ce856e134a1aa7dc6f3162c5a824a5b76ad1'
+    newFile: !uuid '75a7869e3cf07c65d32df766ec02a3570acd249e'
+    oldFile: !uuid 'c2efbb51dd533db4662ed7fc1e586158b4ac8386'
   /src/main/java:
-    newFile: !uuid '272c3145e1300eb7e1ac910dd13e02a4f30cc717'
-    oldFile: !uuid '4dcca22980f357045428e59ad8d739eb6d28596f'
+    newFile: !uuid '53337f9d09424d82f8ec4045e4db8f80da133dd7'
+    oldFile: !uuid '272c3145e1300eb7e1ac910dd13e02a4f30cc717'
   /src/main/java/com:
-    newFile: !uuid '10e2ad740f2af79593fb1b3c583e61438fb0515e'
-    oldFile: !uuid '8c91ea00e045a2e56f062fd9d0e990ff0af7ef31'
+    newFile: !uuid '557a1701006233e3540d284d26a94b2e1fc6a9c7'
+    oldFile: !uuid '10e2ad740f2af79593fb1b3c583e61438fb0515e'
   /src/main/java/com/xq:
-    newFile: !uuid '90d674f247b228b340a555b189cec001956c41a9'
-    oldFile: !uuid 'cca3f3bbba9b9d0b8331b33cd8f444729b879df0'
+    newFile: !uuid '34f0145b67a87761a1df01ac781d0b7f9e1a2208'
+    oldFile: !uuid '90d674f247b228b340a555b189cec001956c41a9'
   /src/main/java/com/xq/tmall:
-    newFile: !uuid 'dbdcd44d1ab08e51cf11483d50345e02602cf196'
-    oldFile: !uuid 'c0d3688a43a4d51943c3f5b0ead73483f598eaf7'
-  /src/main/java/com/xq/tmall/service:
-    newFile: !uuid '1b5181d5bf08b85c1aae618447ac006abf926a0b'
-    oldFile: !uuid '5551a4264782f15f77ad6b447715d0b1f7be33c0'
-  /src/main/java/com/xq/tmall/service/impl:
-    newFile: !uuid '256455b4c2e7a06fa9c020d5d12051f50bbab32e'
-    oldFile: !uuid 'c5203817cb9f174c20be77a24f1c014ac189bf93'
-  /src/main/java/com/xq/tmall/service/impl/AdminServiceImpl.java:
-    newFile: !uuid '46cf61a9d8c1b95d20bc943dc4899f17627e8961'
-    oldFile: !uuid '87395b93496c10ad20d67a3795fc4e9845c4f1c0'
-  /src/main/java/com/xq/tmall/service/impl/CategoryServiceImpl.java:
-    newFile: !uuid 'b83cc09904e62b58c99aa1c951efb9ab9df5c9f1'
-    oldFile: !uuid 'ab153ad6cd6a8215dd8571b3fe33ba724ac836f7'
-  /src/main/java/com/xq/tmall/service/impl/ProductServiceImpl.java:
-    newFile: !uuid '8c3f3110c11623e889f13d7745ab9a47c1ed57e5'
-    oldFile: !uuid '1f5c32f81fc6f5f0f89096d9362ac02a4105c823'
-  /src/main/java/com/xq/tmall/service/impl/PropertyServiceImpl.java:
-    newFile: !uuid 'd88493dd2897126ece2b6a9363712ec62e293cf3'
-    oldFile: !uuid '9076caf545d8ec3833f1d07b3c7a594c5f93a410'
-  /src/main/java/com/xq/tmall/service/impl/PropertyValueServiceImpl.java:
-    newFile: !uuid '65ba0beeddb6e29f6c28452277ae5de0bd22f8f1'
-    oldFile: !uuid '43c82ae5e941f86629000c3c8e7ffcce6f01c5fc'
-  /src/main/java/com/xq/tmall/service/impl/UserServiceImpl.java:
-    newFile: !uuid '0c593ece85ef05c4c2973561fba2874a5b156cfc'
-    oldFile: !uuid 'a5ee7480457f3c858f6bc4e309ed993e8aa8ffc4'
-gitCommitId: !uuid '9ab26050e0a5278aaba640911664c3bb76193da1'
+    newFile: !uuid '4baca4987a406b71c5d04e80f6a079af76d39d3b'
+    oldFile: !uuid 'dbdcd44d1ab08e51cf11483d50345e02602cf196'
+  /src/main/java/com/xq/tmall/controller:
+    newFile: !uuid '8a84acbd2777b36b89431b9753a9fc1825fdc85e'
+    oldFile: !uuid 'bc3b39a34b95f9852c4551e9d7249de41b57ebd8'
+  /src/main/java/com/xq/tmall/controller/admin:
+    newFile: !uuid '5a8d865346d217d01edaedff785ab79c1ad696ce'
+    oldFile: !uuid 'cf4fc193af25e39bfa1f2ba50d9c4da86827c420'
+  /src/main/java/com/xq/tmall/controller/admin/AccountController.java:
+    newFile: !uuid '59f1e6875dedbf2efb6997e7674beb4dd2606f53'
+    oldFile: !uuid '61529771fefcbdee3950697dec46443907bd3707'
+gitCommitId: !uuid '5e71e1421d8653f3b3672c6f283e02b114bfc261'
 renames: {
   }
-revisionId: 51
+revisionId: 52
