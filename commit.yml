@@ -3,39 +3,54 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'c27701d431af525be4acbc80f5c75c6845ab6252'
-    oldFile: !uuid '41a2828ada24b7b7e57431238c5ff4e526a4f240'
+    newFile: !uuid 'ee6d3b637c0d3a706ec368ac5377f84a822efdb9'
+    oldFile: !uuid 'c27701d431af525be4acbc80f5c75c6845ab6252'
   /src/main:
-    newFile: !uuid '81205d457ddd0efc5358f894c8c5a6ea5d3e9ca7'
-    oldFile: !uuid '75a7869e3cf07c65d32df766ec02a3570acd249e'
-  /src/main/resources:
-    newFile: !uuid 'cc0cfa9e6f7b66e0a56e5f62583351ecc49451c7'
-    oldFile: !uuid '253daa1780fc12dd949f4404835ae139a68ae5ce'
-  /src/main/resources/mapper:
-    newFile: !uuid '0f646c954922cca71b147cca984e49d8dc0f86f3'
-    oldFile: !uuid '496f780ee803a2db9fda3c37cb2853de34dd7d4a'
-  /src/main/resources/mapper/CategoryMapper.xml:
-    newFile: !uuid 'c4988fbab90b7b56332b2aae7ba8b5e71b199e71'
-    oldFile: !uuid '371f8d32605147b3bd5345bf9ad11898e6c20816'
+    newFile: !uuid 'abdc7ca55c6f961b0dbc85620ffd25bd0c1afcd8'
+    oldFile: !uuid '81205d457ddd0efc5358f894c8c5a6ea5d3e9ca7'
+  /src/main/java:
+    newFile: !uuid '05b3e3cf89eb258438a37b128b90a285587ec3b3'
+    oldFile: !uuid '53337f9d09424d82f8ec4045e4db8f80da133dd7'
+  /src/main/java/com:
+    newFile: !uuid '8a7cf0401b4988285f76fcd41ccda804f7ddd7d2'
+    oldFile: !uuid '557a1701006233e3540d284d26a94b2e1fc6a9c7'
+  /src/main/java/com/xq:
+    newFile: !uuid '4989fe2d3b90e04a5ac646663895859770a05ac7'
+    oldFile: !uuid '34f0145b67a87761a1df01ac781d0b7f9e1a2208'
+  /src/main/java/com/xq/tmall:
+    newFile: !uuid '20256b16bd50f3d7c1812a35465a9e5f9618e424'
+    oldFile: !uuid '4baca4987a406b71c5d04e80f6a079af76d39d3b'
+  /src/main/java/com/xq/tmall/controller:
+    newFile: !uuid '22d934cac30ac76121f3c3ad64d73b8be8c15f62'
+    oldFile: !uuid '8a84acbd2777b36b89431b9753a9fc1825fdc85e'
+  /src/main/java/com/xq/tmall/controller/admin:
+    newFile: !uuid '814be457e26a9790e746768e171be61e07fc0569'
+    oldFile: !uuid '5a8d865346d217d01edaedff785ab79c1ad696ce'
+  /src/main/java/com/xq/tmall/controller/admin/ProductController.java:
+    newFile: !uuid '613d37be10c815d782f5994bdbd0bce13569712a'
+    oldFile: !uuid '5bed6c6a7e742be9b60ee20875655d8ceea19a86'
   /src/main/webapp:
-    newFile: !uuid '8738f13da4b6f3eb27f7023c779eeaa220d00236'
-    oldFile: !uuid '8d1dd41d8161d0258b99dc5143719ba378ca4c9e'
+    newFile: !uuid '73ec74b65d84e9cd783badbd9bbc14629b071624'
+    oldFile: !uuid '8738f13da4b6f3eb27f7023c779eeaa220d00236'
   /src/main/webapp/WEB-INF:
-    newFile: !uuid '407cca036b4fc1534abd9efbd42ce0cc072a46c6'
-    oldFile: !uuid '500c5e6fd2b51632f9b599a2010d25c89ea4531d'
+    newFile: !uuid '62543a578a75b9c3dff100938fe60396ec23c464'
+    oldFile: !uuid '407cca036b4fc1534abd9efbd42ce0cc072a46c6'
   /src/main/webapp/WEB-INF/page:
-    newFile: !uuid '827fa71f715c04aecaa958ed8d7ed922769ca4b6'
-    oldFile: !uuid '72a663384f0b0e14ccbdfa9be91d72102fca3ef9'
+    newFile: !uuid '26f22b7d4b2dd27907e95f28f850baaf20cd1976'
+    oldFile: !uuid '827fa71f715c04aecaa958ed8d7ed922769ca4b6'
   /src/main/webapp/WEB-INF/page/admin:
-    newFile: !uuid 'fda7e7ca4245ed29a3d9d5e32c4bf8c3187e292a'
-    oldFile: !uuid '3580747b99fd072eb5250ed15df5fd99618f9f9d'
+    newFile: !uuid 'de9bec8da3170e8ee22fa20beee877e64b6a8b3b'
+    oldFile: !uuid 'fda7e7ca4245ed29a3d9d5e32c4bf8c3187e292a'
   /src/main/webapp/WEB-INF/page/admin/include:
-    newFile: !uuid '8f8edf9106f7b76337da157562f9fd4d15fe97ff'
-    oldFile: !uuid '07eff75c9849baa873e8a23945dabb17a731a536'
-  /src/main/webapp/WEB-INF/page/admin/include/categoryDetails.jsp:
-    newFile: !uuid '3dd9d59f9f9ee9c249f18e2f9fa6c05654dfca63'
-    oldFile: !uuid '297fd7506545c41d9ff234a4915851a5d487182e'
-gitCommitId: !uuid 'f9ad0cbf4ce91a5548be14cd7f5d623f237e00fb'
+    newFile: !uuid '62b97c6b4dff2606d20a238fb26154b2f02c7e57'
+    oldFile: !uuid '8f8edf9106f7b76337da157562f9fd4d15fe97ff'
+  /src/main/webapp/WEB-INF/page/admin/include/productDetails.jsp:
+    newFile: !uuid 'c429fec88cb30813e366cc1fb0d02481ccad01bc'
+    oldFile: !uuid '3f53c470184aa8202fc1056b11028179de520459'
+  /src/main/webapp/WEB-INF/page/admin/productManagePage.jsp:
+    newFile: !uuid '65c44209e6b5a666dd8922ea4ed39a97e37decd6'
+    oldFile: !uuid 'd6133ab159a9dccc599776c3799edba1457d8ae5'
+gitCommitId: !uuid '6a4dbde5c64b7f1d13eebe7fd93bf0479a3f1901'
 renames: {
   }
-revisionId: 54
+revisionId: 55
