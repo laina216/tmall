@@ -3,21 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'c5b00ea017812a1439d316b9975667d1feac039b'
-    oldFile: !uuid 'ee6d3b637c0d3a706ec368ac5377f84a822efdb9'
+    newFile: !uuid 'f6fb6ba16b88486d38ffe38c19d60fed17ac8279'
+    oldFile: !uuid 'c5b00ea017812a1439d316b9975667d1feac039b'
   /src/main:
-    newFile: !uuid '58828723f168931f5a4f80c2a164e58012a7405f'
-    oldFile: !uuid 'abdc7ca55c6f961b0dbc85620ffd25bd0c1afcd8'
+    newFile: !uuid '65fecc31f2fcdfa280dc46b14c94505d41f3d2e4'
+    oldFile: !uuid '58828723f168931f5a4f80c2a164e58012a7405f'
   /src/main/resources:
-    newFile: !uuid '6e0268906b811635b0f255638764a2faef57f8f1'
-    oldFile: !uuid 'cc0cfa9e6f7b66e0a56e5f62583351ecc49451c7'
+    newFile: !uuid '5d3d4d2896e2c32340722305839559447958c56d'
+    oldFile: !uuid '6e0268906b811635b0f255638764a2faef57f8f1'
   /src/main/resources/sql:
-    newFile: !uuid '9e52147ab4b0ed04ddb3f36f9d4201f872fb83d2'
-    oldFile: !uuid '2ec60b3524e7e49c432387264a8f984c0f62e8f5'
-  /src/main/resources/sql/tmalldemodb-mysql8.0.sql:
-    newFile: !uuid '49b62a1790d6b8a11ecfd06744a3b7595be7defd'
-    oldFile: null
-gitCommitId: !uuid 'bd50e5912da1816b2b72cd99f5f9c40d2caebbb1'
+    newFile: !uuid '902915158fecaaed9b3a43d474c10439a30e3c12'
+    oldFile: !uuid '9e52147ab4b0ed04ddb3f36f9d4201f872fb83d2'
+  /src/main/resources/sql/tmalldemodb.sql:
+    newFile: null
+    oldFile: !uuid '6d6455c6b5614b43f9a978bfda927e56184d3524'
+gitCommitId: !uuid '137289c4f4a155062597cf09466f701c85aa8ed8'
 renames: {
   }
-revisionId: 59
+revisionId: 60
