@@ -2,46 +2,13 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '3edb5169cc57186b762ea5e0885b5bf7ac6b44c1'
-    oldFile: !uuid 'f5fb19212bef6541df1938ac89fd54d39a78fc98'
-  /src/main:
-    newFile: !uuid 'cb44662e00d0d2e1d73f16eaa14102df12879cf3'
-    oldFile: !uuid 'e55db59044d5e986b88c06d81821bbaca2386313'
-  /src/main/java:
-    newFile: !uuid '39d7736ccb255320dfcc9fd8ab02340cd23fd969'
-    oldFile: !uuid '05b3e3cf89eb258438a37b128b90a285587ec3b3'
-  /src/main/java/com:
-    newFile: !uuid '72be528af24aad981f9974d8aa5f1d655e7ddff4'
-    oldFile: !uuid '8a7cf0401b4988285f76fcd41ccda804f7ddd7d2'
-  /src/main/java/com/xq:
-    newFile: !uuid 'dde9ff3560ed474559f42971e44da626a7dc083e'
-    oldFile: !uuid '4989fe2d3b90e04a5ac646663895859770a05ac7'
-  /src/main/java/com/xq/tmall:
-    newFile: !uuid 'e4958930fb048322fb7af5a0cf891d153c301742'
-    oldFile: !uuid '20256b16bd50f3d7c1812a35465a9e5f9618e424'
-  /src/main/java/com/xq/tmall/controller:
-    newFile: !uuid 'dc03a7a28a685a4a0c474978ea080ada7ee9715b'
-    oldFile: !uuid '22d934cac30ac76121f3c3ad64d73b8be8c15f62'
-  /src/main/java/com/xq/tmall/controller/admin:
-    newFile: !uuid '1c17008304f2d39e582afd5b815d21c920c36620'
-    oldFile: !uuid '814be457e26a9790e746768e171be61e07fc0569'
-  /src/main/java/com/xq/tmall/controller/admin/AccountController.java:
-    newFile: !uuid '009d2525b1120a14d659d05dfa1bf3c9865800c7'
-    oldFile: !uuid '59f1e6875dedbf2efb6997e7674beb4dd2606f53'
-  /src/main/java/com/xq/tmall/controller/admin/AdminLoginController.java:
-    newFile: !uuid 'e94883e05eb5601cb6064302ce89810f7f829615'
-    oldFile: !uuid '1346ce6d22703e7035a25aff31be8abaee4a298e'
-  /src/main/resources:
-    newFile: !uuid '4fbf95995c296d70f58091a096db8ad3ef498910'
-    oldFile: !uuid '2138edd1235be091a2b4c09282b7a409efcd6a27'
-  /src/main/resources/mapper:
-    newFile: !uuid '1d5c288836485449e07d37696abb67a574af40e9'
-    oldFile: !uuid '2442753477186e78953ca81327122bda82e4a8a6'
-  /src/main/resources/mapper/AdminMapper.xml:
-    newFile: !uuid '2b5af1b0e89924b6489c0e8f2671ea8d82895dba'
-    oldFile: !uuid '4d978964cdca74cdcca071994d1c9a750c455ae2'
-gitCommitId: !uuid '7d7c242b739d806817820ac559d7ed6f4bad37be'
+  /README.en.md:
+    newFile: !uuid '87e55f81fdc76abae2f783a9fd204e3ff9550ed0'
+    oldFile: !uuid '744e842a988dbca4cd479a9561d06d863936bde6'
+  /README.md:
+    newFile: !uuid 'b5c17e8c6d07cf7870096b8ac29dcaaa80fbe212'
+    oldFile: !uuid '985f9cdc7e5e501d4c7cd8cc8162696ba43f9632'
+gitCommitId: !uuid '830955905b3fd7facda944de27e4718189115ad9'
 renames: {
   }
-revisionId: 64
+revisionId: 65
