@@ -2,40 +2,37 @@
 branches: {
   }
 fileChange:
+  /pom.xml:
+    newFile: !uuid '65db59b19c06a62e8405210dba6970406cd169ad'
+    oldFile: !uuid '1ea6f5635a613e2726b5546ba6306029dd090f3e'
   /src:
-    newFile: !uuid '3d622be6663841deb61895ad006e61090e4dd71c'
-    oldFile: !uuid 'd52de776450a53a26ed4c099914f519ec76000a0'
+    newFile: !uuid '417d0c8e2eb38294cdb81388659ebe2201f0e73e'
+    oldFile: !uuid '3d622be6663841deb61895ad006e61090e4dd71c'
   /src/main:
-    newFile: !uuid 'f3abec5a5c12675ec6271bed34efcb71e78dff9d'
-    oldFile: !uuid 'a4d72374446f93bbef645a97426f76786adaf00f'
-  /src/main/java:
-    newFile: !uuid '1fbbb51adfb58cf1b055d532aa7d0f585318eb3a'
-    oldFile: !uuid '238400f32fd4d3f5b1c476f34014e56ad8a40034'
-  /src/main/java/com:
-    newFile: !uuid '20412fe3fcd826a18b12ccf03d0f51b393af041d'
-    oldFile: !uuid 'b27b13022a9ccbbc4ee4d12218174451c60ea009'
-  /src/main/java/com/xq:
-    newFile: !uuid 'aee703742203cb823077d8f5fcfd8b6b4c1bc744'
-    oldFile: !uuid 'd6a3516d01ce83cfe42b8007886e3e1d68415a42'
-  /src/main/java/com/xq/tmall:
-    newFile: !uuid 'bafbd553bae2a37c52ad0cd481f77c2da2bbdce0'
-    oldFile: !uuid '430067b2132633673a599e03a3fc7054e92a8d0d'
-  /src/main/java/com/xq/tmall/controller:
-    newFile: !uuid '4045b56f8290bb22e375f698103d3f26a834295a'
-    oldFile: !uuid '1577450dbd7c6ac1243512b6d6a3e9e21aabd9e8'
-  /src/main/java/com/xq/tmall/controller/admin:
-    newFile: !uuid '20b6fb18c71df1a9cd520e05497790f025dc9e67'
-    oldFile: !uuid '1bb6c9cb0b08bf44bfbea1500204b72c7c136026'
-  /src/main/java/com/xq/tmall/controller/admin/AdminHomeController.java:
-    newFile: !uuid '461a260f9f464729f4fc350340ff8b9357dff229'
-    oldFile: !uuid '836dd51e69c7da95b4ae6fe4dd3d07166d0d511e'
-  /src/main/java/com/xq/tmall/controller/admin/AdminLoginController.java:
-    newFile: !uuid '5be52b695972ee24ca20bb587d9fff7807da9434'
-    oldFile: !uuid '230a8eb3cd33e7962f41d8e5102922649ca2e41a'
-  /src/main/java/com/xq/tmall/controller/admin/ReviewController.java:
-    newFile: !uuid '5a6d387be5abdcf886340fa38fcfbcf1901024b5'
-    oldFile: !uuid 'ea06d4f7c26946800d04937f34e160ec0818c164'
-gitCommitId: !uuid 'c8c694d0f082fdc97a00110a02f008a70c646430'
+    newFile: !uuid '3c6556913cd4c857ee177ba04586106e6a777e94'
+    oldFile: !uuid 'f3abec5a5c12675ec6271bed34efcb71e78dff9d'
+  /src/main/resources:
+    newFile: !uuid '43211520cc51e819f63cc4c8b38fff195cafa1bd'
+    oldFile: !uuid '4fbf95995c296d70f58091a096db8ad3ef498910'
+  /src/main/resources/application.yml:
+    newFile: !uuid '8b1164214094c3158d53b8c99b419f5e70c5a08c'
+    oldFile: !uuid '989aa2c85152dffcf49a7b2a8819871268af51c3'
+  /src/main/webapp:
+    newFile: !uuid '999f40bc7389cdddfef3f88147eea7454e04ea23'
+    oldFile: !uuid '73ec74b65d84e9cd783badbd9bbc14629b071624'
+  /src/main/webapp/WEB-INF:
+    newFile: !uuid 'ef380fa80a5e4183f424b64fe6bed75a34d843b6'
+    oldFile: !uuid '62543a578a75b9c3dff100938fe60396ec23c464'
+  /src/main/webapp/WEB-INF/page:
+    newFile: !uuid 'e9f380780aaf513af83e7757a92bbc09c9e0b59e'
+    oldFile: !uuid '26f22b7d4b2dd27907e95f28f850baaf20cd1976'
+  /src/main/webapp/WEB-INF/page/fore:
+    newFile: !uuid 'c57d69ca22d0afdc20d76fb8714da037b43f9a1f'
+    oldFile: !uuid 'b43a8c5f0694bae02767743c6e7fedd21e15cf16'
+  /src/main/webapp/WEB-INF/page/fore/productBuyPage.jsp:
+    newFile: !uuid '219a543ef11ebe293f1fe912f270dad72b4ae501'
+    oldFile: !uuid '576052cc6014912c42d07c41b33409963d6d0daf'
+gitCommitId: !uuid '63608cd07e3fb69ef714bb4076433aa9e9e8576e'
 renames: {
   }
-revisionId: 69
+revisionId: 70
