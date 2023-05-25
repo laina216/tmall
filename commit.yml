@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'f1dfd4977a16ae8e31121a1f557d62ded66b9b54'
-    oldFile: !uuid '417d0c8e2eb38294cdb81388659ebe2201f0e73e'
+    newFile: !uuid '13804b99031972bd2ddb6bc24f583c06fd220166'
+    oldFile: !uuid 'f1dfd4977a16ae8e31121a1f557d62ded66b9b54'
   /src/main:
-    newFile: !uuid '9dea0c5486bbb7157e14b6db8d6efa3a192f834e'
-    oldFile: !uuid '3c6556913cd4c857ee177ba04586106e6a777e94'
-  /src/main/resources:
-    newFile: !uuid '988390189033a992ffb3b8db874b645b00c69a9e'
-    oldFile: !uuid '43211520cc51e819f63cc4c8b38fff195cafa1bd'
-  /src/main/resources/mapper:
-    newFile: !uuid '21e26d54d80ac39d670337ebbae5c07aee459a7d'
-    oldFile: !uuid '1d5c288836485449e07d37696abb67a574af40e9'
-  /src/main/resources/mapper/ProductOrderMapper.xml:
-    newFile: !uuid 'a0bf4dae2b2e573c70117da30cc4c8e92a8ea747'
-    oldFile: !uuid '4c8a78c82004f01667833bda83eebc7d63351a77'
-gitCommitId: !uuid 'fc7bbf084dd8e8f98a2a7d5ceebf03eae60d2b7a'
+    newFile: !uuid '142834caa98172c37bda4b30f2e4e25474614bd0'
+    oldFile: !uuid '9dea0c5486bbb7157e14b6db8d6efa3a192f834e'
+  /src/main/webapp:
+    newFile: !uuid '203d939e3738ade8ecffd54c123b0e36f039a611'
+    oldFile: !uuid '999f40bc7389cdddfef3f88147eea7454e04ea23'
+  /src/main/webapp/WEB-INF:
+    newFile: !uuid 'a1727f719510ae9e17e9a72bc3577df2829955a3'
+    oldFile: !uuid 'ef380fa80a5e4183f424b64fe6bed75a34d843b6'
+  /src/main/webapp/WEB-INF/page:
+    newFile: !uuid '47417bd4b9ce36664d610cc53cb48493dd6b6167'
+    oldFile: !uuid 'e9f380780aaf513af83e7757a92bbc09c9e0b59e'
+  /src/main/webapp/WEB-INF/page/admin:
+    newFile: !uuid '0b171cd7e1cf444888fff364c4c8f799c8c0b7ce'
+    oldFile: !uuid 'de9bec8da3170e8ee22fa20beee877e64b6a8b3b'
+  /src/main/webapp/WEB-INF/page/admin/orderManagePage.jsp:
+    newFile: !uuid '58f1e46ea442d0f41aa2427bcf3078f31f08fab7'
+    oldFile: !uuid '1f16700382030f33bd9e8edcea88c9f9af891982'
+gitCommitId: !uuid '72ebac9ed7d4ba4464333b6dd4e3bb97d3987861'
 renames: {
   }
-revisionId: 71
+revisionId: 72
