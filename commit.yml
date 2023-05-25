@@ -2,37 +2,22 @@
 branches: {
   }
 fileChange:
-  /pom.xml:
-    newFile: !uuid '65db59b19c06a62e8405210dba6970406cd169ad'
-    oldFile: !uuid '1ea6f5635a613e2726b5546ba6306029dd090f3e'
   /src:
-    newFile: !uuid '417d0c8e2eb38294cdb81388659ebe2201f0e73e'
-    oldFile: !uuid '3d622be6663841deb61895ad006e61090e4dd71c'
+    newFile: !uuid 'f1dfd4977a16ae8e31121a1f557d62ded66b9b54'
+    oldFile: !uuid '417d0c8e2eb38294cdb81388659ebe2201f0e73e'
   /src/main:
-    newFile: !uuid '3c6556913cd4c857ee177ba04586106e6a777e94'
-    oldFile: !uuid 'f3abec5a5c12675ec6271bed34efcb71e78dff9d'
+    newFile: !uuid '9dea0c5486bbb7157e14b6db8d6efa3a192f834e'
+    oldFile: !uuid '3c6556913cd4c857ee177ba04586106e6a777e94'
   /src/main/resources:
-    newFile: !uuid '43211520cc51e819f63cc4c8b38fff195cafa1bd'
-    oldFile: !uuid '4fbf95995c296d70f58091a096db8ad3ef498910'
-  /src/main/resources/application.yml:
-    newFile: !uuid '8b1164214094c3158d53b8c99b419f5e70c5a08c'
-    oldFile: !uuid '989aa2c85152dffcf49a7b2a8819871268af51c3'
-  /src/main/webapp:
-    newFile: !uuid '999f40bc7389cdddfef3f88147eea7454e04ea23'
-    oldFile: !uuid '73ec74b65d84e9cd783badbd9bbc14629b071624'
-  /src/main/webapp/WEB-INF:
-    newFile: !uuid 'ef380fa80a5e4183f424b64fe6bed75a34d843b6'
-    oldFile: !uuid '62543a578a75b9c3dff100938fe60396ec23c464'
-  /src/main/webapp/WEB-INF/page:
-    newFile: !uuid 'e9f380780aaf513af83e7757a92bbc09c9e0b59e'
-    oldFile: !uuid '26f22b7d4b2dd27907e95f28f850baaf20cd1976'
-  /src/main/webapp/WEB-INF/page/fore:
-    newFile: !uuid 'c57d69ca22d0afdc20d76fb8714da037b43f9a1f'
-    oldFile: !uuid 'b43a8c5f0694bae02767743c6e7fedd21e15cf16'
-  /src/main/webapp/WEB-INF/page/fore/productBuyPage.jsp:
-    newFile: !uuid '219a543ef11ebe293f1fe912f270dad72b4ae501'
-    oldFile: !uuid '576052cc6014912c42d07c41b33409963d6d0daf'
-gitCommitId: !uuid '63608cd07e3fb69ef714bb4076433aa9e9e8576e'
+    newFile: !uuid '988390189033a992ffb3b8db874b645b00c69a9e'
+    oldFile: !uuid '43211520cc51e819f63cc4c8b38fff195cafa1bd'
+  /src/main/resources/mapper:
+    newFile: !uuid '21e26d54d80ac39d670337ebbae5c07aee459a7d'
+    oldFile: !uuid '1d5c288836485449e07d37696abb67a574af40e9'
+  /src/main/resources/mapper/ProductOrderMapper.xml:
+    newFile: !uuid 'a0bf4dae2b2e573c70117da30cc4c8e92a8ea747'
+    oldFile: !uuid '4c8a78c82004f01667833bda83eebc7d63351a77'
+gitCommitId: !uuid 'fc7bbf084dd8e8f98a2a7d5ceebf03eae60d2b7a'
 renames: {
   }
-revisionId: 70
+revisionId: 71
