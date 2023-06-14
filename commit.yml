@@ -3,33 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '900f0d0c04a399969625a0bbb285939dd52f5efc'
-    oldFile: !uuid '51a9ff251d190a349231ce39b7983fa3241fdbe1'
+    newFile: !uuid '42c5aa0df07dc3e85edb45cbebd1e5fdbe7259c6'
+    oldFile: !uuid '900f0d0c04a399969625a0bbb285939dd52f5efc'
   /src/main:
-    newFile: !uuid '98cacdcfb8d472db33d69db7899f3d3991d6462b'
-    oldFile: !uuid '2f8335662c0cb79bdfd1bed758ca388aecb5a8cb'
-  /src/main/java:
-    newFile: !uuid '12712ece317f02de5de81221982c194173e2f500'
-    oldFile: !uuid '32844841488c59ddaf6f83e2dfe06ab996408a46'
-  /src/main/java/com:
-    newFile: !uuid '1a9dea75de2243047a92153699c855cc44de1760'
-    oldFile: !uuid '25a063f3975bb9c4e214809ef422e20988c01ef9'
-  /src/main/java/com/xq:
-    newFile: !uuid '761f4f90b5dddf276ecd341fb2530495feb2a0ad'
-    oldFile: !uuid '10abb956f554c803563ae0f9d09bb6bff906e70d'
-  /src/main/java/com/xq/tmall:
-    newFile: !uuid '89d78e6a09417af7377b83fcee3c20afe71c2903'
-    oldFile: !uuid 'a12c5b6080874599f1d61463a6a530d4baa8683a'
-  /src/main/java/com/xq/tmall/controller:
-    newFile: !uuid '6440ac123d8d6090454c349dd8a515b3a8e94c07'
-    oldFile: !uuid 'd6acbab44aaadda99f8866fb4f323c46bf279cc7'
-  /src/main/java/com/xq/tmall/controller/admin:
-    newFile: !uuid 'a08190ad4d8ba3071b8333b3ba91661b6f81a558'
-    oldFile: !uuid '154e7783e2ae4dcf1ba2201758e26dc76579c5aa'
-  /src/main/java/com/xq/tmall/controller/admin/AdminLoginController.java:
-    newFile: !uuid '1fb2ba164763f99c0df17922c0aa4638c0701e0b'
-    oldFile: !uuid '5be52b695972ee24ca20bb587d9fff7807da9434'
-gitCommitId: !uuid 'ef4d7bb420ed9cb69ef508b86c9e5f4b5c98354f'
+    newFile: !uuid 'd84df011162bd262877565dc91ee584d38ae27dd'
+    oldFile: !uuid '98cacdcfb8d472db33d69db7899f3d3991d6462b'
+  /src/main/resources:
+    newFile: !uuid '942972063b8e0556316b813bafd4a7ab5884e888'
+    oldFile: !uuid 'e8113570912673afdf5d34ba82fdd2a9c1fdd307'
+  /src/main/resources/mapper:
+    newFile: !uuid '929a6325d1ced8ccb5580fd0453b5bec2792af98'
+    oldFile: !uuid '3a710cdb1aa0ab877586cc1544b1f4d3a15097bd'
+  /src/main/resources/mapper/UserMapper.xml:
+    newFile: !uuid '25cf2237cdfbe3c3a2012560276a84d20ba32149'
+    oldFile: !uuid 'efce143431dc81ad6867ff49273c51fb88b8c2d3'
+gitCommitId: !uuid '5f1e4b510c184d74b35399726471e985569a7b14'
 renames: {
   }
-revisionId: 87
+revisionId: 88
