@@ -184,6 +184,13 @@ public class CategoryController extends BaseController {
         String originalFileName = file.getOriginalFilename();
         // 获取图片原始文件名:  {}, originalFileName
         String extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
+        // 允许的文件类型字符串
+        String allowedExtensions = ".jpg,.jpeg,.png,.gif";
+        
+        // 如果文件类型不在允许范围内，修改为 .jpg 扩展名
+        if (!allowedExtensions.contains(extension)) {
+            extension = ".jpg";
+        }
         String fileName = UUID.randomUUID() + extension;
         String filePath = session.getServletContext().getRealPath("/") + "res/images/item/categoryPicture/" + fileName;
 

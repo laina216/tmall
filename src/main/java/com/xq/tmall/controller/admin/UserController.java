@@ -166,6 +166,7 @@ public class UserController extends BaseController {
         OrderUtil orderUtil = null;
         if (orderBy != null) {
             // 根据{}排序，是否倒序:{}, orderBy, isDesc
+            orderBy = orderBy.replaceAll("[()]", "");
             orderUtil = new OrderUtil(orderBy, isDesc);
         }
         JSONObject object = new JSONObject();
