@@ -9,7 +9,7 @@
 1.项目使用IntelliJ IDEA开发，请使用IntelliJ IDEA的版本控制检出功能，输入“https://gitee.com/HaiTao87/TmallDemo.git”拉取项目即可。
 2.项目数据库master分支为MySQL 5.7版本，feature分支为MySQL 8.0及以上版本，请在码云附件上下载SQL文件或者在resources下的sql文件夹中下载sql，并导入到数据库中。
 3.使用IDEA打开项目后，在maven面板刷新项目，下载依赖包。（项目jdk为1.8）
-4.在IDEA中启动springboot项目即可（run方式或debug方式都行）。
+4.在IDEA中启动springboot项目即可（run方式或debug方式都行）。Linux服务器部署为：maven打成jar包运行，运行命令：java -jar 包名
 5.账户名和密码详见附件中的sql文件或者在resources下的sql文件夹中的sql文件（前台页面和后台页面账户密码下方有说明）。
 master分支数据库sql如下：
 ![master分支数据库sql](https://images.gitee.com/uploads/images/2020/1016/150457_5c0c7304_996301.png "屏幕截图.png")
