@@ -1,6 +1,4 @@
-/**
- * Copyright 2015-现在 广州市网络科技有限公司
- */
+
 package com.xq.tmall.util;
 
 import cn.hutool.core.date.DateField;
