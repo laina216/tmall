@@ -4,7 +4,7 @@
 （仅供参考，如有问题还请见谅！如果觉得不错的请点击五角星帮忙推荐一下，谢谢各位帅哥美女！）
 
 后端页面兼容IE10及以上现代浏览器，Chrome,Edge,Firebox等浏览器表现效果最佳。
-
+注意：一定要仔细核对自己的代码版本，mysql版本，数据库sql文件，以及jdk1.8。
 # 部署方式(master-旧基础版本，feature1.0-较新版本)
 1.项目使用IntelliJ IDEA开发，请使用IntelliJ IDEA的版本控制检出功能，输入“https://gitee.com/HaiTao87/TmallDemo.git”拉取项目即可。
 2.项目数据库master分支为MySQL 5.7版本，feature分支为MySQL 8.0及以上版本，请在码云附件上下载SQL文件或者在resources下的sql文件夹中下载sql，并导入到数据库中。
