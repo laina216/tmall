@@ -3,9 +3,9 @@ Mini Tmall Mall is a comprehensive B2C e-commerce platform based on the SSM fram
 
 The backend page is compatible with modern browsers such as IE10 and above, and Chrome, Edge, and Firebox perform best.
 
-# Deployment method(Master - Basic version, feature1.0- Newer version)
+# Deployment method(feature1.0- Newer version)
 1. The project is developed using IntelliJ IDEA, please use the version control checkout function of IntelliJ IDEA, enter“ https://gitee.com/HaiTao87/TmallDemo.git ”Just pull the item. 
-2. The project database master is divided into MySQL version 5.7, and the feature is divided into MySQL version 8.0 and above. Please download the SQL file from the attachment of Code Cloud or the SQL folder under Resources and import it into the database. 
+2. The project database the feature is divided into MySQL version 8.0 and above. Please download the SQL file from the attachment of Code Cloud or the SQL folder under Resources and import it into the database. 
 3. After opening the project using IDEA, refresh the project in the Maven panel and download the dependency package. (Project jdk is 1.8) 
 4. Start the springboot project in IDEA (either in run or debug mode). Linux server deployment: Maven, run as a jar package, run command: Java - jar package name
 5. Please refer to the attached SQL file for the account name and password, or the SQL file in the SQL folder under Resources (explained below the account password on the front-end and back-end pages).
