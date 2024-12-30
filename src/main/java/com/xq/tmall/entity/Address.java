@@ -1,6 +1,5 @@
 package com.xq.tmall.entity;
 
-import lombok.Data;
 
 public class Address {
     private String address_areaId;

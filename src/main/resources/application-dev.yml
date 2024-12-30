@@ -40,9 +40,9 @@ spring:
       connection-timeout: 5000
       max-lifetime: 60000
   mail:
-    host: smtp.163.com
-    username: fanshuye1304@163.com
-    password: fanshuye1304
+    host:
+    username:
+    password:
   freemarker:
     suffix: .html
     request-context-attribute: request
@@ -98,8 +98,8 @@ logging:
 #短信平台配置
 sms:
   open: true
-  sms-type: huyi
-  sign-name: aa
-  api-id: C68828166
-  api-key: e7814b5b690142a8b36bc17bfc4ec8a4
-  url: http://106.ihuyi.cn/webservice/sms.php?method=Submit
+  sms-type:
+  sign-name:
+  api-id:
+  api-key:
+  url:
