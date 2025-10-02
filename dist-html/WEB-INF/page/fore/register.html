@@ -1,0 +1,198 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/res/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/res/css/bootstrap-select.min.css"/>
+    <link rel="stylesheet" href="/res/css/fore/fore_main.css"/>
+    <script src="/res/js/jquery-1.11.3.min.js"></script>
+    <script src="/res/js/bootstrap.min.js"></script>
+    <script src="/res/js/bootstrap-select.min.js"></script>
+    <script src="/res/js/defaults-zh_CN.min.js"></script>
+    <script src="/res/js/base.js"></script>
+</head>
+<head>
+    <script src="/res/js/fore/fore_register.js"></script>
+    <link href="/res/css/fore/fore_register.css" rel="stylesheet">
+    <title>天猫tmall.com - 网上注册</title>
+    <script>
+        $(function () {
+            $("span.address_province").text($("#select_order_address_province").find("option:selected").text());
+            $("span.address_city").text($("#select_order_address_city").find("option:selected").text());
+            $("span.address_district").text($("#select_order_address_district").find("option:selected").text());
+        })
+    </script>
+    <style rel="stylesheet">
+        #nav {
+            width: auto;
+            height: 32px;
+            font-family: "Microsoft YaHei UI", Tahoma, serif;
+            font-size: 12px;
+            position: relative !important;
+            background: #f2f2f2;
+            z-index: 999;
+            border-bottom: 1px solid #e5e5e5;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="header">
+        <div id="mallLogo">
+            <a href=""><img
+                    src="/res/images/fore/WebsiteImage/tmallLogoA.png"><span
+                    class="span_tmallRegister">用户注册</span></a>
+        </div>
+    </div>
+</nav>
+<div class="content">
+    <div class="steps">
+        <div class="steps_main">
+            <span class="steps_tsl">填写账号信息</span>
+        </div>
+    </div>
+    <div class="form-list">
+        <div class="form-item">
+            <label class="form-label form-label-b tsls">设置会员名</label>
+        </div>
+        <div class="form-item">
+            <label class="form-label tsl">用户名：</label>
+            <input name="user_name" id="user_name" class="form-text err-input" placeholder="请输入用户名" maxlength="20">
+            <span class="form_span"></span>
+        </div>
+        <div class="form-item">
+            <label class="form-label form-label-b tsls">设置登录密码</label>
+            <label class="form-label tsl">登录时验证，保护账号信息</label>
+        </div>
+        <div class="form-item">
+            <label class="form-label tsl">登录密码：</label>
+            <input name="user_password" type="password" id="user_password" class="form-text err-input"
+                   placeholder="请设置登录密码" maxlength="20">
+            <span class="form_span"></span>
+        </div>
+        <div class="form-item">
+            <label class="form-label tsl">确认密码：</label>
+            <input name="user_password_one" type="password" id="user_password_one" class="form-text err-input"
+                   placeholder="请再次输入你的密码" maxlength="20">
+            <span class="form_span"></span>
+        </div>
+        <div class="form-item">
+            <label class="form-label form-label-b tsls">填写基本信息</label>
+        </div>
+        <div class="form-item">
+            <label class="form-label tsl">昵称：</label>
+            <input name="user_nickname" id="user_nickname" class="form-text err-input" placeholder="请输入昵称"
+                   maxlength="20">
+            <span class="form_span"></span>
+        </div>
+        <div class="form-item">
+            <label class="form-label tsl">性别：</label>
+            <input name="user_gender" type="radio" id="form_radion" value="0" checked="checked">男
+            <input name="user_gender" type="radio" id="form_radions" value="1">女
+        </div>
+        <div class="form-item">
+            <label class="form-label tsl">出生日期：</label>
+            <input type="date" name="user_birthday" id="user_birthday" class="form-text err-input"/>
+            <span class="form_span"></span>
+        </div>
+        <div class="form-item">
+            <label class="form-label tsl">居住地址：</label>
+            <select class="selectpicker" id="select_user_address_province" data-size="8" data-live-search="true">
+                
+                    <option value="${address.address_areaId}"
+                            selected>${address.address_name}</option>
+                
+            </select>
+            <select class="selectpicker" id="select_user_address_city" data-size="8" data-live-search="true">
+                
+                    <option value="${address.address_areaId}"
+                            selected>${address.address_name}</option>
+                
+            </select>
+            <select name="user_address" class="selectpicker" id="select_user_address_district" data-size="8"
+                    data-live-search="true">
+                
+                    <option value="${address.address_areaId}"
+                            selected>${address.address_name}</option>
+                
+            </select>
+        </div>
+        <div class="form-item">
+            <input type="button" id="register_sub" class="btns btn-large tsl" value="注 册"/>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="/res/css/fore/fore_foot.css"/>
+<div class="footer-copyright">
+    <div class="footer">
+        <p>
+            <a href="http://pages.tmall.com/wow/seller/act/zhaoshangproduce" target="_blank">关于天猫</a>
+            <a href="http://service.tmall.com/support/tmall/tmallHelp.htm" target="_blank">帮助中心</a>
+            <a href="http://open.taobao.com" target="_blank">开放平台</a>
+            <a href="http://job.alibaba.com/zhaopin/index.htm" target="_blank">诚聘英才</a>
+            <a href="http://consumerservice.taobao.com/contact-us" target="_blank">联系我们</a>
+            <a href="http://xtao.tmall.com?tracelog=tmallfoot" target="_blank">网站合作</a>
+            <a href="http://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html"
+               target="_blank">法律声明及隐私权政策</a>
+            <a href="http://ipp.alibabagroup.com/" target="_blank">知识产权</a>
+            <a href="http://jubao.alibaba.com/index.html?site=TMALL" target="_blank">廉正举报</a>
+            <a href="http://rule.tmall.com/trulecycle.htm" target="_blank" class="noneStyle">规则意见征集</a>
+        </p>
+        <p class="footertwo">
+            <a href="http://www.alibabagroup.com/cn/global/home" target="_blank">阿里巴巴集团</a>
+            <a href="http://www.taobao.com" target="_blank">淘宝网</a>
+            <a href="http://www.tmall.com/" target="_blank">天猫</a>
+            <a href="http://ju.taobao.com/" target="_blank">聚划算</a>
+            <a href="http://www.aliexpress.com/" target="_blank">全球速卖通</a>
+            <a href="http://www.alibaba.com/" target="_blank">阿里巴巴国际交易市场</a>
+            <a href="http://www.1688.com/" target="_blank">1688</a>
+            <a href="http://www.alimama.com/" target="_blank">阿里妈妈</a>
+            <a href="http://www.fliggy.com/" target="_blank">飞猪</a>
+            <a href="http://www.aliyun.com/" target="_blank">阿里云计算</a>
+            <a href="http://www.yunos.com/" target="_blank">YunOS</a>
+            <a href="http://aliqin.cn/" target="_blank">阿里通信</a>
+            <a href="http://www.net.cn/" target="_blank">万网</a>
+            <a href="http://www.autonavi.com/" target="_blank">高德</a>
+            <a href="http://www.uc.cn/" target="_blank">UC</a>
+            <a href="http://www.umeng.com/" target="_blank">友盟</a>
+            <a href="http://www.xiami.com/" target="_blank">虾米</a>
+            <a href="http://www.alibabaplanet.com" target="_blank">阿里星球</a>
+            <a href="http://www.laiwang.com/" target="_blank">来往</a>
+            <a href="http://www.dingtalk.com/?lwfrom=20150205115110773" target="_blank">钉钉</a>
+            <a href="https://www.alipay.com" target="_blank">支付宝</a>
+        </p>
+        <div class="copyright">
+            增值电信业务经营许可证：
+            <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">浙B2-20110446</a>
+            网络文化经营许可证：
+            <a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/CB964ABC7B904B7BA3472DDF700A2D6D"
+               target="_blank">浙网文[2015]0295-065号</a>
+            <a href="http://jb.ccm.gov.cn/" target="_blank">12318举报</a>
+            <br/>
+            互联网药品信息服务资质证书编号：
+            <a href="http://img.alicdn.com/tps/TB1vi6vPVXXXXbVXVXXXXXXXXXX-927-653.png"
+               target="_blank">浙-（经营性）-2017-0005</a>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010002000120" target="_blank">
+                <img src="/res/images/fore/WebsiteImage/TB1yEqRPXXXXXXPXpXXXXXXXXXX-20-20.png">
+                浙公网安备 33010002000120号
+            </a>
+            <br/>
+            <span style="font-weight: bold;">©涛声依旧开发小组 版权所有</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;你知道什么是996.ICU吗？</span>
+            <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"/></a>
+        </div>
+    </div>
+</div>
+<link href="/res/css/fore/fore_foot_special.css" rel="stylesheet"/>
+<div class="msg">
+    <span>注册成功，跳转到登陆页面</span>
+</div>
+</body>
+

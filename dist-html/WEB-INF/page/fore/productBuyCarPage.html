@@ -1,0 +1,499 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/res/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/res/css/bootstrap-select.min.css"/>
+    <link rel="stylesheet" href="/res/css/fore/fore_main.css"/>
+    <script src="/res/js/jquery-1.11.3.min.js"></script>
+    <script src="/res/js/bootstrap.min.js"></script>
+    <script src="/res/js/bootstrap-select.min.js"></script>
+    <script src="/res/js/defaults-zh_CN.min.js"></script>
+    <script src="/res/js/base.js"></script>
+</head>
+<head>
+    <script src="/res/js/fore/fore_productBuyCar.js"></script>
+    <link href="/res/css/fore/fore_productBuyCarPage.css" rel="stylesheet"/>
+    <title>Tmall.com天猫 - 购物车</title>
+    <script>
+        $(function () {
+            $('#btn-ok').click(function () {
+                $.ajax({
+                    url: "/orderItem/" + $("#order_id_hidden").val(),
+                    type: "DELETE",
+                    data: null,
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.success !== true) {
+                            alert("购物车商品删除异常，请稍候再试！");
+                        }
+                        location.href = "/tmall/cart";
+                    },
+                    beforeSend: function () {
+
+                    },
+                    error: function () {
+                        alert("购物车产品删除异常，请稍后再试！");
+                        location.href = "/tmall/cart";
+                    }
+                });
+            });
+        });
+
+        function removeItem(orderItem_id) {
+            if (isNaN(orderItem_id) || orderItem_id === null) {
+                return;
+            }
+            $("#order_id_hidden").val(orderItem_id);
+            $('#modalDiv').modal();
+        }
+    </script>
+</head>
+<body>
+<nav>
+    
+<link rel="stylesheet" href="/res/css/fore/fore_nav.css"/>
+<script>
+    $(function () {
+        $(".quick_li").find("li").hover(
+            function () {
+                $(this).find(".sn_menu").addClass("sn_menu_hover");
+                $(this).find(".quick_menu,.quick_qrcode,.quick_DirectPromoDiv,.quick_sitmap_div").css("display", "block");
+            }, function () {
+                $(this).find(".sn_menu").removeClass("sn_menu_hover");
+                $(this).find(".quick_menu,.quick_qrcode,.quick_DirectPromoDiv,.quick_sitmap_div").css("display", "none");
+            }
+        );
+    });
+</script>
+<div id="nav">
+    <div class="nav_main">
+        <p id="container_login">
+            
+                
+                    <em>喵，欢迎来天猫</em>
+                    <a href="/login">请登录</a>
+                    <a href="/register">免费注册</a>
+                
+                
+                    <em>Hi，</em>
+                    <a href="/userDetails" class="userName"
+                       target="_blank">${requestScope.user.user_name}</a>
+                    <a href="/login/logout">退出</a>
+                
+            
+        </p>
+        <ul class="quick_li">
+            <li class="quick_li_MyTaobao">
+                <div class="sn_menu">
+                    <a href="/userDetails">我的淘宝<b></b></a>
+                    <div class="quick_menu">
+                        <a href="/order/0/10">已买到的宝贝</a>
+                        <a href="#">已卖出的宝贝</a>
+                    </div>
+                </div>
+            </li>
+            <li class="quick_li_cart">
+                <img src="/res/images/fore/WebsiteImage/buyCar.png">
+                <a href="/cart">购物车</a>
+            </li>
+            <li class="quick_li_menuItem">
+                <div class="sn_menu">
+                    <a href="#">收藏夹<b></b></a>
+                    <div class="quick_menu">
+                        <a href="#">收藏的宝贝</a>
+                        <a href="#">收藏的店铺</a>
+                    </div>
+                </div>
+            </li>
+            <li class="quick_li_separator"></li>
+            <li class="quick_li_mobile">
+                <img src="/res/images/fore/WebsiteImage/mobile.png">
+                <a href="#" title="天猫无线">手机版</a>
+                <div class="quick_qrcode">
+                    <img src="/res/images/fore/WebsiteImage/qrcode.png">
+                    <b></b>
+                </div>
+            </li>
+            <li class="quick_home"><a href="">淘宝网</a></li>
+            <li class="quick_DirectPromo">
+                <div class="sn_menu">
+                    <a href="#">商家支持<b></b></a>
+                    <div class="quick_DirectPromoDiv">
+                        <ul>
+                            <li>
+                                <h3>商家：</h3>
+                                <a href="">商家中心</a>
+                                <a href="">天猫规则</a>
+                                <a href="">商家入驻</a>
+                                <a href="">运营服务</a>
+                                <a href="">商家品控</a>
+                                <a href="">商家工具</a>
+                                <a href="">天猫智库</a>
+                                <a href="">喵言喵语</a>
+                            </li>
+                            <li>
+                                <h3>帮助：</h3>
+                                <a href="">帮助中心</a>
+                                <a href="">问商友</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="quick_sitemap">
+                <div class="sn_menu">
+                    <a>网站导航<b></b></a>
+                    <div class="quick_sitmap_div">
+                        <div class="site-hot">
+                            <h2>热点推荐<span>Hot</span></h2>
+                            <ul>
+                                <li><a href="">天猫超市</a></li>
+                                <li><a href="">喵鲜生</a></li>
+                                <li><a href="">科技新品</a></li>
+                                <li><a href="">女装新品</a></li>
+                                <li><a href="">酷玩街</a></li>
+                                <li><a href="">内衣新品</a></li>
+                                <li><a href="">试美妆</a></li>
+                                <li><a href="">运动新品</a></li>
+                                <li><a href="">时尚先生</a></li>
+                                <li><a href="">精明妈咪</a></li>
+                                <li><a href="">吃乐会</a></li>
+                                <li><a href="">企业采购</a></li>
+                                <li><a href="">会员积分</a></li>
+                                <li><a href="">天猫国际</a></li>
+                                <li><a href="">品质频道</a></li>
+                            </ul>
+                        </div>
+                        <div class="site-market">
+                            <h2>行业市场<span>Market</span></h2>
+                            <ul>
+                                <li><a href="">美妆</a></li>
+                                <li><a href="">电器</a></li>
+                                <li><a href="">女装</a></li>
+                                <li><a href="">男装</a></li>
+                                <li><a href="">女鞋</a></li>
+                                <li><a href="">男鞋</a></li>
+                                <li><a href="">内衣</a></li>
+                                <li><a href="">箱包</a></li>
+                                <li><a href="">运动</a></li>
+                                <li><a href="">母婴</a></li>
+                                <li><a href="">家装</a></li>
+                                <li><a href="">医药</a></li>
+                                <li><a href="">食品</a></li>
+                                <li><a href="">配饰</a></li>
+                                <li><a href="">汽车</a></li>
+                            </ul>
+                        </div>
+                        <div class="site-brand">
+                            <h2>品牌风尚<span>Brand</span></h2>
+                            <ul>
+                                <li><a href="">尚天猫</a></li>
+                                <li><a href="">大牌街</a></li>
+                                <li><a href="">潮牌街</a></li>
+                                <li><a href="">天猫原创</a></li>
+                                <li><a href="">什么牌子好</a></li>
+                            </ul>
+                        </div>
+                        <div class="site-help">
+                            <h2>服务指南<span>Help</span></h2>
+                            <ul>
+                                <li><a href="">帮助中心</a></li>
+                                <li><a href="">品质保障</a></li>
+                                <li><a href="">特色服务</a></li>
+                                <li><a href="">7天退换货</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+    <div class="header">
+        <div id="mallLogo">
+            <a href=""><img
+                    src="/res/images/fore/WebsiteImage/tmallLogoA.png"><span
+                    class="span_tmallBuyCar">购物车</span></a>
+        </div>
+        <div class="shopSearchHeader">
+            <form action="/product" method="get">
+                <div class="shopSearchInput">
+                    <input type="text" class="searchInput" name="product_name" placeholder="搜索 天猫 商品/品牌/店铺"
+                           value="${requestScope.searchValue}" maxlength="50">
+                    <input type="submit" value="搜 索" class="searchBtn">
+                </div>
+            </form>
+            <ul>
+                
+                    <li>
+                        <a href="/product?category_id=${category.category_id}">${category.category_name}</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="content">
+    
+        
+            <div id="crumbs">
+                <span class="cart-tip">购物车帮您一次性完成批量购买与付款，下单更便捷，付款更简单！<a
+                        href="http://service.taobao.com/support/help-11746.htm?spm=a1z0d.1.0.0.ogEwpx" target="_blank">如何使用购物车</a></span>
+            </div>
+            <div id="empty">
+                <h2>您的购物车还是空的，赶紧行动吧！您可以：</h2>
+                <ul>
+                    <li>看看<a href="/order">已买到的宝贝</a></li>
+                </ul>
+            </div>
+        
+        
+            <div id="J_FilterBar">
+                <ul id="J_CartSwitch">
+                    <li>
+                        <a href="/cart" class="J_MakePoint">
+                            <em>全部商品</em>
+                            <span class="number">${requestScope.orderItemTotal}</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="cart-sum">
+                    <span class="pay-text">已选商品（不含运费）</span>
+                    <strong class="price"><em id="J_SmallTotal"><span
+                            class="total-symbol">&nbsp;</span>0.00</em></strong>
+                    <a id="J_SmallSubmit" class="submit-btn submit-btn-disabled">结&nbsp;算</a>
+                </div>
+                <div class="wrap-line">
+                    <div class="floater"></div>
+                </div>
+            </div>
+            <table id="J_CartMain">
+                <thead>
+                <tr>
+                    <th class="selectAll_th"><input type="checkbox" class="cbx_select" id="cbx_select_all"><label
+                            for="cbx_select_all">全选</label></th>
+                    <th width="474px" class="productInfo_th"><span>商品信息</span></th>
+                    <th width="120px"><span>单价</span></th>
+                    <th width="120px"><span>数量</span></th>
+                    <th width="120px"><span>金额</span></th>
+                    <th width="84px"><span>操作</span></th>
+                    <th hidden>ID</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                    <tr class="orderItem_category">
+                        <td colspan="6"><span class="shop_logo"></span><span
+                                class="category_shop">店铺：海涛${orderItem.productOrderItem_product.product_category.category_name}旗舰店</span>
+                        </td>
+                    </tr>
+                    <tr class="orderItem_info">
+                        <td class="tbody_checkbox"><input type="checkbox" class="cbx_select"
+                                                          id="cbx_orderItem_select_${orderItem.productOrderItem_id}"
+                                                          name="orderItem_id"><label
+                                for="cbx_orderItem_select_${orderItem.productOrderItem_id}"></label></td>
+                        <td><img class="orderItem_product_image"
+                                 src="/res/images/item/productSinglePicture/${orderItem.productOrderItem_product.singleProductImageList[0].productImage_src}"
+                                 style="width: 80px;height: 80px;"/><span class="orderItem_product_name"><a
+                                href="/product/${orderItem.productOrderItem_product.product_id}">${orderItem.productOrderItem_product.product_name}</a></span>
+                        </td>
+                        <td><span
+                                class="orderItem_product_price">￥${orderItem.productOrderItem_price/orderItem.productOrderItem_number}</span>
+                        </td>
+                        <td>
+                            <div class="item_amount">
+                                <a href="javascript:void(0)" onclick="up(this)"
+                                   class="J_Minus no_minus">-</a>
+                                <input type="text" value="${orderItem.productOrderItem_number}"/>
+                                <a href="javascript:void(0)" onclick="down(this)" class="J_Plus">+</a>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="orderItem_product_realPrice">￥${orderItem.productOrderItem_price}</span>
+                        </td>
+                        <td><a href="javascript:void(0)" onclick="removeItem('${orderItem.productOrderItem_id}')"
+                               class="remove_order">删除</a></td>
+                        <td>
+                            <input type="hidden" class="input_orderItem" name="${orderItem.productOrderItem_id}"/>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+            <div id="J_FloatBar">
+                <div id="J_SelectAll2">
+                    <div class="cart_checkbox">
+                        <input class="J_checkboxShop" id="J_SelectAllCbx2" type="checkbox" value="true"/>
+                        <label for="J_SelectAllCbx2" title="勾选购物车内所有商品"></label>
+                    </div>
+                    <span class="span_selectAll">&nbsp;全选</span>
+                </div>
+                <div class="operations">
+                    <a href="javascript:void(0)" onclick="remove()">删除</a>
+                </div>
+                <div class="float-bar-right">
+                    <div id="J_ShowSelectedItems">
+                        <span class="txt">已选商品</span>
+                        <em id="J_SelectedItemsCount">0</em>
+                        <span class="txt">件</span>
+                    </div>
+                    <div class="price_sum">
+                        <span class="txt">合计（不含运费）:</span>
+                        <strong class="price">
+                            <em id="J_Total">
+                                <span class="total_symbol">&nbsp;  ￥</span>
+                                <span class="total_value"> 0.00</span>
+                            </em>
+                        </strong>
+                    </div>
+                    <div class="btn_area">
+                        <a href="javascript:void(0)" id="J_Go" onclick="create(this)">
+                            <span>结&nbsp;算</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+    
+</div>
+
+<div class="modal fade" id="modalDiv" tabindex="-1" role="dialog" aria-labelledby="modalDiv" aria-hidden="true"
+     data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">您确定要取消该宝贝吗？</div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btn-ok">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close">关闭</button>
+                <input type="hidden" id="order_id_hidden">
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+<link rel="stylesheet" href="/res/css/fore/fore_foot_two.css"/>
+<div class="banner_footer">
+    <div class="tmall-ensure">
+        <a href="http://pages.tmall.com/wow/seller/act/newpinzhibaozhang"></a>
+        <a href="http://www.tmall.com/wow/seller/act/seven-day"></a>
+        <a href="http://www.tmall.com/wow/seller/act/special-service?spm=875.7931836/B.a2226n1.3.71ca4265dmsU86"></a>
+        <a href="http://service.tmall.com/support/tmall/tmallHelp.htm"></a>
+    </div>
+    <div class="tmall-desc">
+        <dl>
+            <dt><span>购物指南</span></dt>
+            <dd><a href="http://register.tmall.com/" target="_blank">免费注册</a> <a
+                    href="https://www.alipay.com/user/reg_select.htm" target="_blank">开通支付宝</a> <a
+                    href="https://www.alipay.com/user/login.htm?goto=https%3A%2F%2Fwww.alipay.com%2Fuser%2Finpour_request.htm"
+                    target="_blank">支付宝充值</a></dd>
+        </dl>
+        <dl>
+            <dt><span>天猫保障</span></dt>
+            <dd data-spm-anchor-id="875.7931836/B.a2226n1.i0.71ca4265hUvhyq"><a
+                    href="http://service.tmall.com/support/tmall/knowledge-1140860.htm" target="_blank">发票保障</a> <a
+                    href="http://service.tmall.com/support/tmall/knowledge-1124063.htm" target="_blank">售后规则</a> <a
+                    href="http://service.tmall.com/support/tmall/knowledge-1126800.htm" target="_blank">缺货赔付</a></dd>
+        </dl>
+        <dl>
+            <dt><span>支付方式</span></dt>
+            <dd><a href="https://payservice.alipay.com/intro/index.htm?c=kjzf" target="_blank">快捷支付</a> <a
+                    href="https://payservice.alipay.com/intro/index.htm?c=xyk" target="_blank">信用卡</a> <a
+                    href="https://payservice.alipay.com/intro/index.htm?c=yeb" target="_blank">余额宝</a> <a
+                    href="https://payservice.alipay.com/intro/index.htm?c=hb" target="_blank">蚂蚁花呗</a> <a
+                    href="http://tms.alicdn.com/market/cainiao/codchn.php" target="_blank">货到付款</a></dd>
+        </dl>
+        <dl>
+            <dt><span>商家服务</span></dt>
+            <dd>
+                <a href="http://guize.tmall.com/" target="_blank">天猫规则</a>
+                <a href="http://zhaoshang.tmall.com/" target="_blank">商家入驻</a>
+                <a href="http://shangjia.tmall.com/portal.htm" target="_blank">商家中心</a>
+                <a href="http://peixun.tmall.com/" target="_blank">天猫智库</a>
+                <a href="http://e56.tmall.com" target="_blank">物流服务</a>
+                <a href="http://maowo.tmall.com/" target="_blank">喵言喵语</a>
+                <a href="http://fw.tmall.com/" target="_blank">运营服务</a></dd>
+        </dl>
+        <dl>
+            <dt>手机天猫</dt>
+            <dd><a href="http://mobile.tmall.com/?spm=875.7931836/B.a2226n1.23.71ca4265hUvhyq" class="join"><img
+                    src="/res/images/fore/WebsiteImage/TB14VZKHXXXXXcAXXXX64VRZFXX-105-105.png"
+                    width="105" height="105" alt="手机天猫"></a>
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<link rel="stylesheet" href="/res/css/fore/fore_foot.css"/>
+<div class="footer-copyright">
+    <div class="footer">
+        <p>
+            <a href="http://pages.tmall.com/wow/seller/act/zhaoshangproduce" target="_blank">关于天猫</a>
+            <a href="http://service.tmall.com/support/tmall/tmallHelp.htm" target="_blank">帮助中心</a>
+            <a href="http://open.taobao.com" target="_blank">开放平台</a>
+            <a href="http://job.alibaba.com/zhaopin/index.htm" target="_blank">诚聘英才</a>
+            <a href="http://consumerservice.taobao.com/contact-us" target="_blank">联系我们</a>
+            <a href="http://xtao.tmall.com?tracelog=tmallfoot" target="_blank">网站合作</a>
+            <a href="http://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html"
+               target="_blank">法律声明及隐私权政策</a>
+            <a href="http://ipp.alibabagroup.com/" target="_blank">知识产权</a>
+            <a href="http://jubao.alibaba.com/index.html?site=TMALL" target="_blank">廉正举报</a>
+            <a href="http://rule.tmall.com/trulecycle.htm" target="_blank" class="noneStyle">规则意见征集</a>
+        </p>
+        <p class="footertwo">
+            <a href="http://www.alibabagroup.com/cn/global/home" target="_blank">阿里巴巴集团</a>
+            <a href="http://www.taobao.com" target="_blank">淘宝网</a>
+            <a href="http://www.tmall.com/" target="_blank">天猫</a>
+            <a href="http://ju.taobao.com/" target="_blank">聚划算</a>
+            <a href="http://www.aliexpress.com/" target="_blank">全球速卖通</a>
+            <a href="http://www.alibaba.com/" target="_blank">阿里巴巴国际交易市场</a>
+            <a href="http://www.1688.com/" target="_blank">1688</a>
+            <a href="http://www.alimama.com/" target="_blank">阿里妈妈</a>
+            <a href="http://www.fliggy.com/" target="_blank">飞猪</a>
+            <a href="http://www.aliyun.com/" target="_blank">阿里云计算</a>
+            <a href="http://www.yunos.com/" target="_blank">YunOS</a>
+            <a href="http://aliqin.cn/" target="_blank">阿里通信</a>
+            <a href="http://www.net.cn/" target="_blank">万网</a>
+            <a href="http://www.autonavi.com/" target="_blank">高德</a>
+            <a href="http://www.uc.cn/" target="_blank">UC</a>
+            <a href="http://www.umeng.com/" target="_blank">友盟</a>
+            <a href="http://www.xiami.com/" target="_blank">虾米</a>
+            <a href="http://www.alibabaplanet.com" target="_blank">阿里星球</a>
+            <a href="http://www.laiwang.com/" target="_blank">来往</a>
+            <a href="http://www.dingtalk.com/?lwfrom=20150205115110773" target="_blank">钉钉</a>
+            <a href="https://www.alipay.com" target="_blank">支付宝</a>
+        </p>
+        <div class="copyright">
+            增值电信业务经营许可证：
+            <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">浙B2-20110446</a>
+            网络文化经营许可证：
+            <a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/CB964ABC7B904B7BA3472DDF700A2D6D"
+               target="_blank">浙网文[2015]0295-065号</a>
+            <a href="http://jb.ccm.gov.cn/" target="_blank">12318举报</a>
+            <br/>
+            互联网药品信息服务资质证书编号：
+            <a href="http://img.alicdn.com/tps/TB1vi6vPVXXXXbVXVXXXXXXXXXX-927-653.png"
+               target="_blank">浙-（经营性）-2017-0005</a>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010002000120" target="_blank">
+                <img src="/res/images/fore/WebsiteImage/TB1yEqRPXXXXXXPXpXXXXXXXXXX-20-20.png">
+                浙公网安备 33010002000120号
+            </a>
+            <br/>
+            <span style="font-weight: bold;">©涛声依旧开发小组 版权所有</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;你知道什么是996.ICU吗？</span>
+            <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"/></a>
+        </div>
+    </div>
+</div>
+</body>
